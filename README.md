@@ -31,3 +31,11 @@ Para mover um projeto em andamento para a lista de finalizados, basta trocar `st
 ## Como adicionar membros, notícias ou publicações
 
 Edite as listas `DSBD.FACULTY`, `DSBD.STUDENTS`, `DSBD.PAST`, `DSBD.NEWS` e `DSBD.PUBS` em `assets/content.js`. Fotos de pessoas vão em `img/people/` (quadradas, ~400 px).
+
+## Ao atualizar o conteúdo
+
+Os navegadores guardam `assets/content.js` por até 10 minutos. Para que a mudança apareça na hora, troque o número depois de `?v=` nas três páginas HTML (`index.html`, `projetos-finalizados.html`, `projeto.html`), por exemplo para a data e a hora atuais:
+
+```html
+<script src="assets/content.js?v=202610192100"></script>
+```
