@@ -60,7 +60,8 @@ function renderHome(t){
   $("panel-fac").innerHTML=D.FACULTY.map(f=>{const bio=f[lang];const long=bio.length>190;const short=long?bio.slice(0,bio.indexOf(" ",170))+"…":bio;return `<article class="fac">${av(f.n,f.img)}<div style="min-width:0"><h3>${f.n}</h3>${long?`<details><summary>${t.bio}</summary><p>${bio}</p></details><p>${short}</p>`:`<p>${bio}</p>`}</div></article>`}).join("");
   document.querySelectorAll(".fac details").forEach(d=>d.addEventListener("toggle",()=>{d.nextElementSibling.hidden=d.open}));
   $("panel-stu").innerHTML=D.STUDENTS.map(s=>`<article class="stu"><div class="top">${av(s.n,s.img)}<div><h3>${s.n}</h3><span class="chip ${s.l}">${t["lvl_"+s.l]}</span></div></div><p>${s[lang]}</p></article>`).join("");
-  $("panel-past").innerHTML=D.PAST.map(p=>`<li><b>${p.n}</b><span>${p[lang]}</span></li>`).join("");
+  $("panel-past").innerHTML=D.PAST.map(p=>`<li>${av(p.n,p.img)}<div><b>${p.n}</b><span>${p[lang]}</span></div></li>`).join("");
+  $("cnt-fac").textContent=D.FACULTY.length;$("cnt-stu").textContent=D.STUDENTS.length;$("cnt-past").textContent=D.PAST.length;
   $("newsList").innerHTML=D.NEWS.map(n=>{const f=new Date(n.d+"T12:00:00").toLocaleDateString(lang==="pt"?"pt-BR":"en-US",{day:"numeric",month:"long",year:"numeric"});return `<li><time datetime="${n.d}">${f}</time><p>${n[lang]}${n.u?` <a ${ext(n.u)}>${n.u.replace(/^https?:\/\//,"")}</a>`:""}</p></li>`}).join("");
   $("collabList").innerHTML=D.COLLAB.map(c=>`<article class="inst${c.wide?" wide":""}"><span class="where">${c.where[lang]}</span><h3>${c.name}</h3><div class="people">${c.people.map(([n,i])=>`<span class="person">${av(n,i)}${n}</span>`).join("")}</div><p>${c[lang]}</p></article>`).join("");
   $("industryList").innerHTML=`<span class="lbl">${t.industry}</span>`+D.INDUSTRY.map(([n,i])=>`<span class="co-logo"><img src="${i}" alt="${esc(n)}" title="${esc(n)}" loading="lazy"></span>`).join("");
@@ -107,10 +108,6 @@ render();
 
 /* ---------- interactions ---------- */
 document.querySelectorAll("[data-set-lang]").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.setLang;try{localStorage.setItem("dsbd-lang",lang)}catch(e){}render()}));
-document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x===b));
-  ["fac","stu","past"].forEach(k=>$("panel-"+k).hidden=k!==b.dataset.tab);
-}));
 const bar=document.querySelector(".bar"),menuBtn=$("menuBtn");
 menuBtn.addEventListener("click",()=>{const o=bar.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o)});
 document.querySelectorAll(".bar nav a").forEach(a=>a.addEventListener("click",()=>{bar.classList.remove("open");menuBtn.setAttribute("aria-expanded",false)}));

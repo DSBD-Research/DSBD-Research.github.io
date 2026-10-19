@@ -54,14 +54,18 @@
 <section class="band alt" id="membros">
   <div class="wrap">
     <div class="head"><div><span class="eyebrow" data-i18n="mem_eyebrow"></span><h2 data-i18n="mem_title"></h2></div></div>
-    <div class="tabs" role="tablist">
-      <button role="tab" id="tab-fac" aria-selected="true" data-tab="fac" data-i18n="tab_fac"></button>
-      <button role="tab" id="tab-stu" aria-selected="false" data-tab="stu" data-i18n="tab_stu"></button>
-      <button role="tab" id="tab-past" aria-selected="false" data-tab="past" data-i18n="tab_past"></button>
+    <div class="mgroup">
+      <div class="mhead"><h3 data-i18n="tab_fac"></h3><span class="count" id="cnt-fac"></span></div>
+      <div id="panel-fac" class="faculty"></div>
     </div>
-    <div id="panel-fac" class="faculty"></div>
-    <div id="panel-stu" class="students" hidden></div>
-    <ul id="panel-past" class="past" hidden></ul>
+    <div class="mgroup">
+      <div class="mhead"><h3 data-i18n="tab_stu"></h3><span class="count" id="cnt-stu"></span></div>
+      <div id="panel-stu" class="students"></div>
+    </div>
+    <div class="mgroup">
+      <div class="mhead"><h3 data-i18n="tab_past"></h3><span class="count" id="cnt-past"></span></div>
+      <ul id="panel-past" class="past"></ul>
+    </div>
   </div>
 </section>
 
