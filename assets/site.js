@@ -53,6 +53,7 @@ function renderHome(t){
   $("areasList").innerHTML=D.AREAS.map((a,i)=>`<div class="area"><span class="ix">${String(i+1).padStart(2,"0")} / ${String(D.AREAS.length).padStart(2,"0")}</span><h3>${a[lang][0]}</h3><p>${a[lang][1]}</p></div>`).join("");
   const ongoing=D.PROJECTS.filter(p=>p.status!=="finished");
   const nFin=D.PROJECTS.length-ongoing.length;
+  $("projList").classList.toggle("even",ongoing.length%2===0);
   $("projList").innerHTML=ongoing.map(p=>projCard(p,t)).join("")+
     `<a class="finished-cta" href="projetos-finalizados.html"><div><h3>${t.finished_cta_t} <span style="color:var(--macaw)">· ${nFin}</span></h3><p>${t.finished_cta_d}</p></div><span class="btn primary">${t.finished_cta_b}</span></a>`;
   $("pubList").innerHTML=D.PUBS.map(p=>`<li class="pub"><span class="yr">${p.y}</span><div><div class="t">${esc(p.t)}</div><div class="a">${esc(p.a)}</div><div class="v">${esc(p.v)}</div></div>${p.u?`<a class="pdf" ${ext(p.u)}>PDF ↗</a>`:"<span></span>"}</li>`).join("");
