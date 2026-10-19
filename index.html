@@ -1,284 +1,63 @@
 <!doctype html>
-<html lang="pt" data-lang="pt">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DSBD UFPR</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Data Science & Big Data — laboratório de pesquisa da UFPR (DINF + DEST).">
-<link rel="icon" href="https://prlalmeida.com.br/dsbd/wp-content/uploads/2024/02/cropped-cropped-LogoComDSBD-270x270.png">
+<link rel="icon" type="image/webp" href="img/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>
-/* Layout: sticky bar → stream-canvas hero → alternating full-width bands, each with a 1120px inner column */
-:root{
-  --paper:#F5F7FC; --paper-2:#E9EEF8; --card:#FFFFFF;
-  --ink:#0D1830; --muted:#55617A; --line:#D5DDEC;
-  --cobalt:#1C4ED8; --cobalt-ink:#FFFFFF; --sky:#3D7BFF; --macaw:#F2B705; --macaw-ink:#2A1F00;
-  --hero:#0B1B4A; --hero-ink:#EEF3FF; --hero-muted:#AFC0EA;
-  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --r:14px; color-scheme:light;
-}
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --paper:#0A1022; --paper-2:#0F1830; --card:#131E3A;
-  --ink:#E6ECF8; --muted:#9AA8C6; --line:#24304F;
-  --cobalt:#5B8CFF; --cobalt-ink:#06122E; --sky:#83A9FF; --macaw:#FFCB3D; --macaw-ink:#2A1F00;
-  --hero:#060D24; --hero-ink:#EEF3FF; --hero-muted:#9FB2E2; color-scheme:dark }}
-:root[data-theme="dark"]{
-  --paper:#0A1022; --paper-2:#0F1830; --card:#131E3A;
-  --ink:#E6ECF8; --muted:#9AA8C6; --line:#24304F;
-  --cobalt:#5B8CFF; --cobalt-ink:#06122E; --sky:#83A9FF; --macaw:#FFCB3D; --macaw-ink:#2A1F00;
-  --hero:#060D24; --hero-ink:#EEF3FF; --hero-muted:#9FB2E2; color-scheme:dark }
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--f-body)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--hero)}
-a{color:var(--cobalt)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--macaw);outline-offset:2px;border-radius:6px}
-img{max-width:100%}
-.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
-.eyebrow{font:500 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt)}
-
-/* header */
-header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--hero) 92%,transparent);backdrop-filter:blur(10px);color:var(--hero-ink)}
-.bar .wrap{display:flex;align-items:center;gap:20px;min-height:64px}
-.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;font:800 20px/1 var(--f-display);letter-spacing:.02em}
-.brand img{width:38px;height:auto;background:#fff;border-radius:10px;padding:3px}
-.bar nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
-.bar nav a{color:var(--hero-muted);text-decoration:none;font-size:14px;font-weight:500;padding:8px 10px;border-radius:8px}
-.bar nav a:hover{color:var(--hero-ink);background:rgba(255,255,255,.08)}
-.lang{display:flex;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:3px}
-.lang button{all:unset;cursor:pointer;font:500 12px/1 var(--f-mono);padding:7px 10px;border-radius:999px;color:var(--hero-muted)}
-.lang button[aria-pressed="true"]{background:var(--macaw);color:var(--macaw-ink)}
-.menu-btn{display:none;all:unset;cursor:pointer;color:var(--hero-ink);font:500 13px/1 var(--f-mono);padding:8px 10px;border:1px solid rgba(255,255,255,.25);border-radius:8px}
-@media (max-width:900px){
-  .menu-btn{display:inline-block;margin-left:auto}
-  .bar .wrap{flex-wrap:wrap}
-  .bar nav{display:none;order:9;width:100%;margin:0;padding-bottom:12px}
-  .bar.open nav{display:flex}
-}
-
-/* hero */
-.hero{position:relative;background:var(--hero);color:var(--hero-ink);overflow:hidden}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
-.hero .wrap{position:relative;padding-block:72px 64px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:center}
-.hero h1{font-size:clamp(44px,8vw,96px);font-weight:800;letter-spacing:-.02em;line-height:.95}
-.hero h1 .amp{color:var(--macaw)}
-.hero .lede{max-width:56ch;color:var(--hero-muted);font-size:18px;margin:22px 0 28px}
-.hero .lede strong{color:var(--hero-ink);font-weight:600}
-.hero .eyebrow{color:var(--macaw);display:block;margin-bottom:18px}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:12px 18px;border-radius:999px;border:1px solid transparent}
-.btn.primary{background:var(--macaw);color:var(--macaw-ink)}
-.btn.ghost{color:var(--hero-ink);border-color:rgba(255,255,255,.3)}
-.btn.ghost:hover{background:rgba(255,255,255,.08)}
-.logo-disc{justify-self:center;width:min(300px,70vw);aspect-ratio:1;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,255,255,.06),0 0 0 22px rgba(255,255,255,.03)}
-.logo-disc img{width:64%;height:auto}
-.dept{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;font:500 12px/1 var(--f-mono);color:var(--hero-muted)}
-.dept span{border:1px solid rgba(255,255,255,.2);padding:8px 10px;border-radius:8px}
-@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;padding-block:44px}.logo-disc{width:150px;justify-self:start;order:-1}}
-
-/* sections */
-section.band{padding-block:84px}
-section.band.alt{background:var(--paper-2)}
-.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
-.head h2{font-size:clamp(30px,4.5vw,46px);font-weight:700;margin-top:10px}
-.head p{max-width:52ch;color:var(--muted);margin:0}
-
-/* areas */
-.areas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.area{background:var(--card);padding:26px;display:flex;flex-direction:column;gap:10px}
-.area .ix{font:500 12px/1 var(--f-mono);color:var(--muted)}
-.area h3{font-size:21px;font-weight:700}
-.area p{margin:0;color:var(--muted);font-size:15px}
-@media (max-width:900px){.areas{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.areas{grid-template-columns:1fr}}
-
-/* projects */
-.projects{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
-.proj{grid-column:span 2;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;text-decoration:none;color:inherit;transition:transform .2s,border-color .2s}
-.proj:nth-child(1),.proj:nth-child(2){grid-column:span 3}
-.proj:hover{transform:translateY(-3px);border-color:var(--cobalt)}
-.proj .ph{aspect-ratio:16/9;background:linear-gradient(135deg,var(--cobalt),var(--hero));overflow:hidden}
-.proj .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.proj .bd{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
-.proj h3{font-size:21px}
-.proj p{margin:0;color:var(--muted);font-size:15px}
-.proj .more{margin-top:auto;padding-top:8px;font:500 13px/1 var(--f-mono);color:var(--cobalt)}
-@media (max-width:900px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.proj,.proj:nth-child(1),.proj:nth-child(2){grid-column:span 1}}
-@media (max-width:560px){.projects{grid-template-columns:1fr}}
-
-/* publications */
-.pubs{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
-.pub{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line)}
-.pub .yr{font:500 15px/1 var(--f-mono);color:var(--cobalt);font-variant-numeric:tabular-nums}
-.pub .t{font-weight:600;font-size:17px;line-height:1.35}
-.pub .a{color:var(--muted);font-size:14px;margin-top:4px}
-.pub .v{font-style:italic;font-size:14px;color:var(--muted)}
-.pub a.pdf{font:500 12px/1 var(--f-mono);text-decoration:none;border:1px solid var(--line);padding:7px 10px;border-radius:999px;white-space:nowrap}
-.pub a.pdf:hover{border-color:var(--cobalt)}
-@media (max-width:640px){.pub{grid-template-columns:1fr;gap:6px}}
-
-/* members */
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px}
-.tabs button{all:unset;cursor:pointer;padding:9px 14px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:500;color:var(--muted)}
-.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.faculty{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.fac{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
-.avatar{width:100%;aspect-ratio:1;border-radius:12px;object-fit:cover;background:linear-gradient(135deg,var(--sky),var(--cobalt));display:grid;place-items:center;color:#fff;font:700 26px/1 var(--f-display)}
-.fac h3{font-size:19px}
-.fac p{margin:8px 0 0;color:var(--muted);font-size:14.5px}
-.fac details summary{cursor:pointer;color:var(--cobalt);font:500 12px/1 var(--f-mono);margin-top:10px;list-style:none}
-.fac details summary::-webkit-details-marker{display:none}
-.students{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
-.stu{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px}
-.stu .top{display:flex;gap:12px;align-items:center}
-.stu .avatar{width:56px;border-radius:50%;font-size:18px;flex:none}
-.stu h3{font-size:17px}
-.stu p{margin:0;color:var(--muted);font-size:14px}
-.chip{display:inline-block;font:500 11px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:6px;background:var(--paper-2);color:var(--ink);margin-top:5px}
-.chip.phd{background:var(--cobalt);color:var(--cobalt-ink)}
-.chip.ms{background:var(--macaw);color:var(--macaw-ink)}
-.past{columns:2 280px;column-gap:32px;margin:0;padding:0;list-style:none}
-.past li{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--line)}
-.past b{font-weight:600}
-.past span{display:block;color:var(--muted);font-size:14px}
-@media (max-width:760px){.faculty{grid-template-columns:1fr}.fac{grid-template-columns:72px minmax(0,1fr)}}
-
-/* news */
-.news-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:32px;align-items:start}
-.meeting{background:var(--hero);color:var(--hero-ink);border-radius:var(--r);padding:28px;position:sticky;top:96px}
-.meeting .eyebrow{color:var(--macaw)}
-.meeting h3{font-size:28px;margin:12px 0}
-.meeting p{color:var(--hero-muted);margin:0 0 18px}
-.when{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font:500 14px/1.4 var(--f-mono)}
-.when dt{color:var(--hero-muted)}
-.when dd{margin:0}
-.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
-.timeline li{position:relative;padding:0 0 28px 26px}
-.timeline li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--cobalt)}
-.timeline time{font:500 13px/1 var(--f-mono);color:var(--cobalt)}
-.timeline p{margin:6px 0 0}
-.timeline a{word-break:break-word}
-@media (max-width:800px){.news-grid{grid-template-columns:1fr}.meeting{position:static}}
-
-/* collaborations */
-.collab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.inst{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px}
-.inst.wide{grid-column:1/-1}
-.inst .where{font:500 12px/1 var(--f-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-.inst h3{font-size:22px}
-.inst p{margin:0;color:var(--muted);font-size:15px}
-.people{display:flex;gap:14px;flex-wrap:wrap}
-.person{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14.5px}
-.person .avatar{width:44px;border-radius:50%;font-size:15px}
-.industry{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;align-items:center}
-.industry .lbl{font:500 12px/1 var(--f-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
-.industry span.co{font:700 18px/1 var(--f-display);padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
-@media (max-width:760px){.collab{grid-template-columns:1fr}}
-
-/* join */
-.join{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.join .opt{border-top:3px solid var(--cobalt);background:var(--card);border-radius:0 0 var(--r) var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
-.join .opt:nth-child(2){border-top-color:var(--macaw)}
-.join .opt:nth-child(3){border-top-color:var(--sky)}
-.join h3{font-size:20px}
-.join p{margin:0;color:var(--muted);font-size:15px}
-.step{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:24px}
-.step .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--macaw);color:var(--macaw-ink);display:grid;place-items:center;font:700 16px/1 var(--f-display)}
-.step p{margin:0}
-.notice{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:24px;border-radius:var(--r);border:1px dashed var(--cobalt);background:color-mix(in srgb,var(--cobalt) 6%,var(--card))}
-.notice h3{font-size:20px;margin:6px 0}
-.notice p{margin:0;color:var(--muted);font-size:15px}
-.notice .links{display:flex;gap:10px;flex-wrap:wrap}
-.notice .links a{text-decoration:none;font-weight:600;font-size:14px;padding:10px 14px;border-radius:999px;background:var(--cobalt);color:var(--cobalt-ink)}
-.notice .links a.sec{background:transparent;color:var(--cobalt);border:1px solid var(--cobalt)}
-@media (max-width:820px){.join{grid-template-columns:1fr}.notice{grid-template-columns:1fr}}
-
-/* footer */
-footer{background:var(--hero);color:var(--hero-muted);padding-block:48px 40px}
-footer .wrap{display:flex;gap:32px;flex-wrap:wrap;justify-content:space-between;align-items:center}
-footer .brand img{width:48px}
-footer .brand{color:var(--hero-ink)}
-footer .contact{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-footer .mail{font:500 15px/1 var(--f-mono);color:var(--hero-ink);user-select:all}
-footer button,footer a.li{all:unset;cursor:pointer;font:500 13px/1 var(--f-mono);padding:9px 12px;border:1px solid rgba(255,255,255,.25);border-radius:999px;color:var(--hero-ink)}
-footer small{display:block;width:100%;font-size:13px}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.proj{transition:none}}
-</style>
+<link rel="stylesheet" href="assets/site.css">
+<title>DSBD – Data Science &amp; Big Data · UFPR</title>
+<meta name="description" content="Data Science &amp; Big Data (DSBD), laboratório de pesquisa da UFPR (DINF + DEST).">
 </head>
-<body>
-
-<header class="bar" id="top">
-  <div class="wrap">
-    <a class="brand" href="#top"><img src="https://prlalmeida.com.br/dsbd/wp-content/uploads/2024/02/cropped-LogoComDSBD-93x100.png" alt="Logo DSBD">DSBD</a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" data-i18n="menu">Menu</button>
-    <nav aria-label="Principal">
-      <a href="#sobre" data-i18n="nav_about">Sobre</a>
-      <a href="#projetos" data-i18n="nav_projects">Projetos</a>
-      <a href="#publicacoes" data-i18n="nav_pubs">Publicações</a>
-      <a href="#membros" data-i18n="nav_members">Membros</a>
-      <a href="#noticias" data-i18n="nav_news">Notícias</a>
-      <a href="#colaboracoes" data-i18n="nav_collab">Colaborações</a>
-      <a href="#faca-parte" data-i18n="nav_join">Faça parte</a>
-    </nav>
-    <div class="lang" role="group" aria-label="Idioma / Language">
-      <button type="button" data-set-lang="pt" aria-pressed="true">PT</button>
-      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
-    </div>
-  </div>
-</header>
+<body data-page="home">
 
 <section class="hero" id="sobre">
   <canvas id="stream" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <span class="eyebrow" data-i18n="hero_eyebrow">Laboratório de pesquisa · UFPR</span>
+      <span class="eyebrow" data-i18n="hero_eyebrow"></span>
       <h1>Data Science<br><span class="amp">&amp;</span> Big Data</h1>
       <p class="lede" data-i18n-html="about"></p>
       <div class="cta">
-        <a class="btn primary" href="#projetos" data-i18n="cta_projects">Conheça os projetos</a>
-        <a class="btn ghost" href="#faca-parte" data-i18n="cta_join">Faça parte do grupo</a>
+        <a class="btn primary" href="#projetos" data-i18n="cta_projects"></a>
+        <a class="btn ghost" href="#faca-parte" data-i18n="cta_join"></a>
       </div>
-      <div class="dept"><span>DINF · <span data-i18n="dinf">Departamento de Informática</span></span><span>DEST · <span data-i18n="dest">Departamento de Estatística</span></span></div>
+      <div class="dept"><span>DINF · <span data-i18n="dinf"></span></span><span>DEST · <span data-i18n="dest"></span></span></div>
     </div>
-    <div class="logo-disc"><img src="https://prlalmeida.com.br/dsbd/wp-content/uploads/2024/02/cropped-LogoComDSBD.png" alt="Logo do DSBD: papagaio azul"></div>
+    <div class="logo-disc"><img src="img/logo.webp" alt="Logo do DSBD: papagaio azul" width="595" height="640"></div>
   </div>
 </section>
 
 <section class="band" id="areas">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="areas_eyebrow">Áreas de interesse</span><h2 data-i18n="areas_title">O que pesquisamos</h2></div></div>
+    <div class="head"><div><span class="eyebrow" data-i18n="areas_eyebrow"></span><h2 data-i18n="areas_title"></h2></div></div>
     <div class="areas" id="areasList"></div>
   </div>
 </section>
 
 <section class="band alt" id="projetos">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="proj_eyebrow">Nossos projetos</span><h2 data-i18n="proj_title">Projetos principais</h2></div><p data-i18n="proj_lede">Conheça alguns dos nossos principais projetos.</p></div>
+    <div class="head"><div><span class="eyebrow" data-i18n="proj_eyebrow"></span><h2 data-i18n="proj_title"></h2></div><p data-i18n="proj_lede"></p></div>
     <div class="projects" id="projList"></div>
   </div>
 </section>
 
 <section class="band" id="publicacoes">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="pubs_eyebrow">Pesquisas recentes</span><h2 data-i18n="pubs_title">Publicações selecionadas</h2></div></div>
+    <div class="head"><div><span class="eyebrow" data-i18n="pubs_eyebrow"></span><h2 data-i18n="pubs_title"></h2></div></div>
     <ol class="pubs" id="pubList"></ol>
   </div>
 </section>
 
 <section class="band alt" id="membros">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="mem_eyebrow">Membros</span><h2 data-i18n="mem_title">Quem faz o DSBD</h2></div></div>
+    <div class="head"><div><span class="eyebrow" data-i18n="mem_eyebrow"></span><h2 data-i18n="mem_title"></h2></div></div>
     <div class="tabs" role="tablist">
-      <button role="tab" id="tab-fac" aria-selected="true" data-tab="fac" data-i18n="tab_fac">Docentes</button>
-      <button role="tab" id="tab-stu" aria-selected="false" data-tab="stu" data-i18n="tab_stu">Estudantes</button>
-      <button role="tab" id="tab-past" aria-selected="false" data-tab="past" data-i18n="tab_past">Ex-membros</button>
+      <button role="tab" id="tab-fac" aria-selected="true" data-tab="fac" data-i18n="tab_fac"></button>
+      <button role="tab" id="tab-stu" aria-selected="false" data-tab="stu" data-i18n="tab_stu"></button>
+      <button role="tab" id="tab-past" aria-selected="false" data-tab="past" data-i18n="tab_past"></button>
     </div>
     <div id="panel-fac" class="faculty"></div>
     <div id="panel-stu" class="students" hidden></div>
@@ -288,15 +67,15 @@ footer small{display:block;width:100%;font-size:13px}
 
 <section class="band" id="noticias">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="news_eyebrow">Notícias</span><h2 data-i18n="news_title">Atividades do grupo</h2></div></div>
+    <div class="head"><div><span class="eyebrow" data-i18n="news_eyebrow"></span><h2 data-i18n="news_title"></h2></div></div>
     <div class="news-grid">
       <aside class="meeting">
-        <span class="eyebrow" data-i18n="meet_eyebrow">Aberto ao público</span>
-        <h3 data-i18n="meet_title">Reuniões semanais</h3>
+        <span class="eyebrow" data-i18n="meet_eyebrow"></span>
+        <h3 data-i18n="meet_title"></h3>
         <p data-i18n="meet_text"></p>
         <dl class="when">
-          <dt data-i18n="meet_when">Quando</dt><dd data-i18n="meet_day">Terças, 10h30</dd>
-          <dt data-i18n="meet_where">Onde</dt><dd data-i18n="meet_place">Departamento de Informática, UFPR</dd>
+          <dt data-i18n="meet_when"></dt><dd data-i18n="meet_day"></dd>
+          <dt data-i18n="meet_where"></dt><dd data-i18n="meet_place"></dd>
         </dl>
       </aside>
       <ol class="timeline" id="newsList"></ol>
@@ -306,233 +85,28 @@ footer small{display:block;width:100%;font-size:13px}
 
 <section class="band alt" id="colaboracoes">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="col_eyebrow">Colaborações</span><h2 data-i18n="col_title">Parceiros no Brasil e no exterior</h2></div></div>
+    <div class="head"><div><span class="eyebrow" data-i18n="col_eyebrow"></span><h2 data-i18n="col_title"></h2></div></div>
     <div class="collab" id="collabList"></div>
-    <div class="industry"><span class="lbl" data-i18n="industry">Indústria</span><span class="co">IBM Brasil</span><span class="co">Samsung Research Brazil</span><span class="co">GoGenetic</span></div>
+    <div class="industry" id="industryList"></div>
   </div>
 </section>
 
 <section class="band" id="faca-parte">
   <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="join_eyebrow">Faça parte</span><h2 data-i18n="join_title">Venha pesquisar conosco</h2></div><p data-i18n="join_lede"></p></div>
+    <div class="head"><div><span class="eyebrow" data-i18n="join_eyebrow"></span><h2 data-i18n="join_title"></h2></div><p data-i18n="join_lede"></p></div>
     <div class="step"><span class="n">1</span><p data-i18n-html="join_step"></p></div>
     <div class="join" id="joinList"></div>
     <div class="notice">
-      <div><span class="eyebrow" data-i18n="notice_eyebrow">Editais</span><h3 data-i18n="notice_title">Projeto de P&amp;D Libra Rocks</h3><p data-i18n="notice_text"></p></div>
+      <div><span class="eyebrow" data-i18n="notice_eyebrow"></span><h3 data-i18n="notice_title"></h3><p data-i18n="notice_text"></p></div>
       <div class="links">
-        <a href="https://prlalmeida.com.br/dsbd/wp-content/uploads/2026/09/Edital.pdf" data-i18n="notice_doc">Edital</a>
-        <a class="sec" href="https://prlalmeida.com.br/dsbd/wp-content/uploads/2026/10/ResultadosProjetoLibraRocks1-1.pdf" data-i18n="notice_res">Resultados</a>
+        <a href="docs/edital-libra-rocks.pdf" target="_blank" rel="noopener" data-i18n="notice_doc"></a>
+        <a class="sec" href="docs/resultados-libra-rocks.pdf" target="_blank" rel="noopener" data-i18n="notice_res"></a>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <a class="brand" href="#top"><img src="https://prlalmeida.com.br/dsbd/wp-content/uploads/2024/02/cropped-LogoComDSBD.png" alt="Logo DSBD">Data Science &amp; Big Data</a>
-    <div class="contact">
-      <span class="mail" id="mail">dsbd@ufpr.br</span>
-      <button type="button" id="copyMail" data-i18n="copy">Copiar e-mail</button>
-      <a class="li" href="https://www.linkedin.com/company/dsbd-ufpr" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-    <small>© 2026 DSBD · Universidade Federal do Paraná · Curitiba, PR</small>
-  </div>
-</footer>
-
-<script>
-const U = "https://prlalmeida.com.br/dsbd/wp-content/uploads/";
-const T = {
-pt:{menu:"Menu",nav_about:"Sobre",nav_projects:"Projetos",nav_pubs:"Publicações",nav_members:"Membros",nav_news:"Notícias",nav_collab:"Colaborações",nav_join:"Faça parte",
-hero_eyebrow:"Laboratório de pesquisa · UFPR",
-about:"O <strong>Data Science &amp; Big Data</strong> é um laboratório de pesquisa da <strong>Universidade Federal do Paraná (UFPR)</strong>, na interseção do Departamento de Informática (DINF) e do Departamento de Estatística (DEST). Reunimos pesquisadores das duas áreas em <strong>Aprendizado de Máquina, Aprendizado Profundo, Modelagem Estatística, Prototipagem de Hardware e processamento de fluxos de Big Data</strong>.",
-cta_projects:"Conheça os projetos",cta_join:"Faça parte do grupo",dinf:"Departamento de Informática",dest:"Departamento de Estatística",
-areas_eyebrow:"Áreas de interesse",areas_title:"O que pesquisamos",
-proj_eyebrow:"Nossos projetos",proj_title:"Projetos principais",proj_lede:"Conheça alguns dos nossos principais projetos.",more:"Saiba mais →",
-pubs_eyebrow:"Pesquisas recentes",pubs_title:"Publicações selecionadas",
-mem_eyebrow:"Membros",mem_title:"Quem faz o DSBD",tab_fac:"Docentes",tab_stu:"Estudantes",tab_past:"Ex-membros",bio:"Biografia completa",
-lvl_ug:"Graduação",lvl_ms:"Mestrado",lvl_phd:"Doutorado",
-news_eyebrow:"Notícias",news_title:"Atividades do grupo",meet_eyebrow:"Aberto ao público",meet_title:"Reuniões semanais",
-meet_text:"Toda semana um estudante apresenta sua pesquisa em andamento. As apresentações são abertas e todos os interessados estão convidados.",
-meet_when:"Quando",meet_day:"Terças, 10h30",meet_where:"Onde",meet_place:"Departamento de Informática, UFPR",
-col_eyebrow:"Colaborações",col_title:"Parceiros no Brasil e no exterior",industry:"Indústria",
-join_eyebrow:"Faça parte",join_title:"Venha pesquisar conosco",join_lede:"Estamos sempre abertos a novos estudantes de graduação e de pós-graduação.",
-join_step:"Qualquer que seja o programa, o primeiro passo obrigatório é agendar uma entrevista com um possível orientador do grupo. Veja os <a href=\"#membros\">docentes</a> e as informações do <a href=\"https://www.prppg.ufpr.br/site/ppginf/pb/doutorado/\" target=\"_blank\" rel=\"noopener\">PPGInf</a>.",
-notice_eyebrow:"Editais",notice_title:"Projeto de P&D Libra Rocks",notice_text:"Seleção de estudantes para pesquisa no Projeto de P&D Libra Rocks, em parceria com o Instituto Lamir, com foco na aplicação de Deep Learning à análise de dados geológicos.",notice_doc:"Edital (PDF)",notice_res:"Resultados (PDF)",
-copy:"Copiar e-mail",copied:"Copiado"},
-en:{menu:"Menu",nav_about:"About",nav_projects:"Projects",nav_pubs:"Publications",nav_members:"Members",nav_news:"News",nav_collab:"Collaborations",nav_join:"Join in",
-hero_eyebrow:"Research laboratory · UFPR",
-about:"<strong>Data Science &amp; Big Data</strong> is a research laboratory at the <strong>Federal University of Paraná (UFPR)</strong>, at the intersection of the Department of Informatics (DINF) and the Department of Statistics (DEST). We bring researchers from both fields together in <strong>Machine Learning, Deep Learning, Statistical Modeling, Hardware Prototyping, and Big Data stream processing</strong>.",
-cta_projects:"See our projects",cta_join:"Join the group",dinf:"Department of Informatics",dest:"Department of Statistics",
-areas_eyebrow:"Areas of interest",areas_title:"What we research",
-proj_eyebrow:"Our projects",proj_title:"Main projects",proj_lede:"Learn more about some of our main projects.",more:"Learn more →",
-pubs_eyebrow:"Latest research",pubs_title:"Selected publications",
-mem_eyebrow:"Members",mem_title:"The people behind DSBD",tab_fac:"Faculty",tab_stu:"Students",tab_past:"Past members",bio:"Full bio",
-lvl_ug:"Undergrad",lvl_ms:"Master's",lvl_phd:"PhD",
-news_eyebrow:"News",news_title:"Group activities",meet_eyebrow:"Open to the public",meet_title:"Weekly meetings",
-meet_text:"Every week, a student presents their ongoing research. The presentations are open to the public, and everyone interested is welcome.",
-meet_when:"When",meet_day:"Tuesdays, 10:30 AM",meet_where:"Where",meet_place:"Department of Informatics, UFPR",
-col_eyebrow:"Collaborations",col_title:"Partners in Brazil and abroad",industry:"Industry",
-join_eyebrow:"Join in",join_title:"Come do research with us",join_lede:"We are always open to new applications for both our undergraduate and graduate programs.",
-join_step:"Whatever the program, the first mandatory step is to schedule an interview with a potential advisor from the group. See our <a href=\"#membros\">faculty</a> and the <a href=\"https://www.prppg.ufpr.br/site/ppginf/pb/doutorado/\" target=\"_blank\" rel=\"noopener\">PPGInf</a> information (in Portuguese).",
-notice_eyebrow:"Public notices",notice_title:"Libra Rocks R&D Project",notice_text:"Call for students to conduct research in the Libra Rocks R&D Project, developed in partnership with the Lamir Institute and focused on applying Deep Learning to the analysis of geological data.",notice_doc:"Notice (PDF)",notice_res:"Results (PDF)",
-copy:"Copy email",copied:"Copied"}};
-
-const AREAS=[
-{pt:["Aprendizado de Máquina","Sistemas que aprendem e melhoram com a experiência, sem programação explícita: algoritmos que identificam padrões, fazem previsões e aprendem a partir de dados."],
- en:["Machine Learning","Systems that learn and improve from experience without being explicitly programmed: algorithms that identify patterns, make predictions and learn from data."]},
-{pt:["Processamento de Streams","Análise em tempo real de fluxos contínuos de dados: ingestão, processamento e análise à medida que os dados são gerados, permitindo respostas imediatas."],
- en:["Stream Processing","Real-time analysis of continuous data streams: ingesting, processing and analyzing data as it is generated, enabling immediate insights and actions."]},
-{pt:["Redes Neurais Profundas","Redes com múltiplas camadas que aprendem padrões complexos diretamente dos dados, sem engenharia de características, com grande sucesso em imagens e linguagem."],
- en:["Deep Neural Networks","Multi-layer networks that learn intricate patterns directly from data without feature engineering, highly successful in image recognition and language processing."]},
-{pt:["Cidades Inteligentes","Tecnologia e dados para melhorar a vida urbana: sensores, IoT, análise de dados e IA aplicados a transporte, energia, resíduos, segurança e sustentabilidade."],
- en:["Smart Cities","Technology and data to improve urban life: sensors, IoT, analytics and AI applied to transportation, energy, waste management, public safety and sustainability."]},
-{pt:["Processamento e Classificação de Imagens","Manipulação e análise de imagens para extrair informação útil, e categorização de imagens em classes predefinidas com aprendizado de máquina."],
- en:["Image Processing & Classification","Manipulating and analyzing images to extract useful information, and categorizing images into predefined classes with machine learning."]},
-{pt:["Hardware","Prototipagem de hardware com propósitos específicos, como incluir instruções vetoriais na memória para acelerar o processamento de dados."],
- en:["Hardware","Prototyping special-purpose hardware, such as adding vector instructions in memory to make data processing faster."]}];
-
-const PROJECTS=[
-{img:"2023/11/2012-12-07_17_12_25.jpg",pt:["MetaPKLot","Novas técnicas que usam câmeras para aprimorar a gestão automatizada do tráfego em cidades inteligentes por meio de aprendizado de máquina.","pt/projeto-pklot-2-0/"],en:["MetaPKLot","Novel techniques that use cameras to enhance automated traffic management in smart cities through machine learning.","projects/"]},
-{img:"2024/02/conceptdrift1.jpg",pt:["Concept Drifts","Como adaptar modelos de aprendizado de máquina para lidar com mudanças nos dados?","pt/concept-drifts-2/"],en:["Concept Drifts","How can we adapt machine learning models to deal with changes in the data?","concept-drifts/"]},
-{img:"2024/02/imagemProjetoEduardo.png",pt:["Consultas com aceleração de rede","Processamento de consultas de banco de dados com aceleração de rede: grandes volumes de dados processados na borda.","pt/processamento-de-consultas-de-banco-de-dados-com-aceleracao-de-rede/"],en:["Network-accelerated queries","Database query processing with network acceleration: large amounts of data processed on the edge.","database-query-processing-with-network-acceleration/"]},
-{img:"2024/02/powerGRid.png",pt:["Falhas em redes elétricas","Framework para diagnóstico de falhas em linhas de transmissão por meio de aprendizado de máquina.","pt/detectando-falhas-em-redes-eletricas/"],en:["Faults on power grids","A framework for fault diagnosis in transmission lines through machine learning.","detecting-faults-on-power-grids/"]},
-{img:"2024/02/e6330279-3c0f-4756-a30f-9eb46d6329f8.jpg",pt:["De Olho nos Corais","Monitoramento da saúde dos corais diante do estresse climático, incentivando o compartilhamento de fotos de recifes no Instagram.","pt/de-olho-nos-corais/"],en:["Keeping an Eye on the Corals","Monitoring coral health under climate stress and encouraging people to share reef photos on Instagram.","keeping-an-eye-on-the-corals/"]}];
-
-const PUBS=[
-{y:2024,t:"Using Deep Neural Networks to Quantify Parking Dwell Time",a:"Ribas, M. E. M., Mendes, H. B., Oliveira, L. E. S., Zanlorensi, L. A., Almeida, P. R. L.",v:"IEEE 23rd International Conference on Machine Learning and Applications (ICMLA)",u:"https://arxiv.org/pdf/2411.00158"},
-{y:2024,t:"Optimizing Parking Space Classification: Distilling Ensembles into Lightweight Classifiers",a:"Alves, P. L., Hochuli, A., Oliveira, L. E., Almeida, P. R. L.",v:"IEEE 23rd International Conference on Machine Learning and Applications (ICMLA)",u:"https://arxiv.org/pdf/2410.14705"},
-{y:2023,t:"Vehicle Occurrence-based Parking Space Detection",a:"Almeida, P. R. L., Alves, J. H., Oliveira, L. S., Hochuli, A. G., Fröhlich, J. V., Krauel, R. A.",v:"IEEE International Conference on Systems, Man, and Cybernetics (SMC)",u:""},
-{y:2023,t:"Improved Computation of Database Operators via Vector Processing Near-Data",a:"Santos, S., Kepe, T. R., Alves, M. A.",v:"IEEE 35th International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD)",u:"https://ieeexplore.ieee.org/abstract/document/10305869"},
-{y:2023,t:"Fast & Furious: On the modelling of malware detection as an evolving data stream",a:"Ceschin, F., Botacin, M., Gomes, H. M., Pinagé, F., Oliveira, L. S., Grégio, A.",v:"Expert Systems with Applications, 212, 118590",u:"https://www.sciencedirect.com/science/article/pii/S0957417422016463"},
-{y:2021,t:"Fast detection of denial constraint violations",a:"Pena, E. H., de Almeida, E. C., Naumann, F.",v:"Proceedings of the VLDB Endowment, 15(4), 859–871",u:"https://dl.acm.org/doi/abs/10.14778/3503585.3503595/"},
-{y:2015,t:"PKLot – A robust dataset for parking lot classification",a:"Almeida, P. R. L., Oliveira, L. S., Silva Jr, E., Britto Jr, A., Koerich, A.",v:"Expert Systems with Applications, 42(11), 4937–4949",u:"http://www.inf.ufpr.br/lesoliveira/download/ESWA2015.pdf"}];
-
-const FACULTY=[
-{n:"Anderson Ara",img:"2024/02/andersonAra.jpeg",
- pt:"Bacharel (2009) e mestre (2011) em Estatística pela Universidade Federal de São Carlos (UFSCar). Doutor em Estatística (2016) pelos Programas de Pós-Graduação em Estatística (PPGEst-UFSCar) e em Ciência da Computação (PPGCC-UFSCar).",
- en:"Holds a bachelor's degree (2009) and a master's degree (2011) in Statistics, both from the Federal University of São Carlos (UFSCar). He completed his Ph.D. in Statistics (2016) through the Postgraduate Programs in Statistics (PPGEst-UFSCar) and Computer Science (PPGCC-UFSCar)."},
-{n:"André Grégio",img:"2026/08/gregio.jpg",
- pt:"Professor Associado do Departamento de Informática da UFPR. Doutor em Engenharia Elétrica pela UNICAMP (2012). Pesquisa segurança computacional, análise de malware, segurança de dispositivos móveis e aplicação de aprendizado de máquina e ciência de dados à cibersegurança.",
- en:"Associate Professor in the Department of Informatics at UFPR. Ph.D. in Electrical Engineering from the University of Campinas (UNICAMP, 2012). His research covers computer security, malware analysis, mobile device security, and machine learning and data science applied to cybersecurity."},
-{n:"Eduardo Cunha de Almeida",img:"2023/10/Eduardo_Almeida.jpeg",
- pt:"Professor Associado da UFPR. Pesquisa sistemas de banco de dados e gerenciamento de dados, com publicações em periódicos e conferências de prestígio como VLDB e ICDE.",
- en:"Associate Professor at UFPR. His research is in database systems and data management, with publications in highly regarded venues such as VLDB and ICDE."},
-{n:"Luiz Eduardo S. Oliveira",img:"2023/10/Luiz_Eduardo-e1741634746360.jpg",
- pt:"Doutor em Ciência da Computação pela Université du Québec (2003). Orientou e coorientou mais de 40 estudantes de mestrado, doutorado e pós-doutorado e publicou mais de 240 artigos em periódicos e conferências internacionais. Recebeu o prêmio de melhor tese de doutorado da ÉTS/Université du Québec (2003) e o IBM Faculty Award (2017). Atua em reconhecimento de padrões, aprendizado de máquina e visão computacional.",
- en:"Ph.D. in Computer Science from Université du Québec (2003). He has supervised and co-supervised more than 40 master's, doctoral and postdoctoral students and published over 240 articles in journals and international conferences. He received the Excellence Award for the best doctoral thesis from ÉTS/Université du Québec (2003) and an IBM Faculty Award (2017). He works mainly in pattern recognition, machine learning and computer vision."},
-{n:"Marco Antonio Zanata Alves",img:"2023/10/Zanata-683x1024.jpg",
- pt:"Bacharel em Ciência da Computação pela UNESP (2006), mestre (2009) e doutor (2014) em Ciência da Computação pela UFRGS, onde fez pós-doutorado (2014–2016). Desde 2016 é Professor Associado do Departamento de Informática da UFPR, responsável por disciplinas de arquitetura de computadores e programação paralela.",
- en:"B.Sc. in Computer Science from UNESP (2006), M.Sc. (2009) and Ph.D. (2014) in Computer Science from UFRGS, where he was a postdoctoral researcher (2014–2016). Since 2016 he has been an Associate Professor in the Department of Informatics at UFPR, teaching computer architecture and parallel programming."},
-{n:"Paulo Ricardo Lisboa de Almeida",img:"2023/10/paulo.jpeg",
- pt:"Bacharel em Engenharia de Computação pela UEPG (2012) e doutor em Ciência da Computação pela UFPR (2018). Pesquisa aprendizado de máquina e contribuiu com algoritmos e benchmarks usados pela comunidade, como o framework Dynse (no MOA) e a base PKLot.",
- en:"B.Sc. in Computer Engineering from UEPG (2012) and Ph.D. in Computer Science from UFPR (2018). His research focuses on machine learning and has produced algorithms and benchmarks used by the community, such as the Dynse Framework (in MOA) and the PKLot dataset."},
-{n:"Wagner Hugo Bonat",img:"2023/10/Wagner_Bonat.jpeg",
- pt:"Pesquisador e professor do Departamento de Estatística da UFPR desde 2010. Bacharel (2008) e mestre (2010) pela UFPR, e doutor em Matemática e Ciência da Computação pela University of Southern Denmark (2016).",
- en:"Researcher and lecturer in the Department of Statistics at UFPR since 2010. B.S. (2008) and M.S. (2010) from UFPR, and Ph.D. in Mathematics and Computer Science from the University of Southern Denmark (2016)."},
-{n:"Walmes Marques Zeviani",img:"2023/10/Walmes_Marques.jpg",
- pt:"Professor Associado do Departamento de Estatística da UFPR desde 2010. Leciona Estatística Computacional no bacharelado em Estatística e diversas disciplinas da Especialização em Data Science e Big Data, além de Estatística Básica e Aplicada, com foco em análise de dados.",
- en:"Associate Professor in the Department of Statistics at UFPR since 2010. He teaches Computational Statistics in the Statistics bachelor's program and several courses in the Data Science and Big Data Specialization, as well as Elementary and Applied Statistics with a focus on data analysis."}];
-
-const STUDENTS=[
-{n:"Claudio Biazus",l:"phd",img:"2025/09/thumbnail_Claudio_Biazus-rotated.jpg",pt:"Doutorando no PPGInf, em Inteligência Artificial com ênfase em Dataset Distillation.",en:"PhD student in PPGInf, in Artificial Intelligence with an emphasis on Dataset Distillation."},
-{n:"Eloiza",l:"ms",img:"2024/02/WhatsApp-Image-2024-02-28-at-10.04.08-683x1024.jpeg",pt:"Mestranda.",en:"Master's student."},
-{n:"Paulo Luza",l:"ms",img:"2025/11/foto_paulo_DSBD.jpeg",pt:"Mestrando no PPGInf, pesquisa técnicas de compressão de modelos de Deep Learning.",en:"Master's student in PPGInf, researching model compression techniques for Deep Learning."},
-{n:"David Gomes",l:"ug",img:"2024/02/WhatsApp-Image-2023-12-15-at-14.29.55-1024x1020-1.jpeg",pt:"Ciência da Computação, com foco em Processamento de Linguagem Natural (PLN).",en:"Computer Science, focused on Natural Language Processing (NLP)."},
-{n:"Luan Kujavski",l:"ug",img:"2025/09/luan-768x1024.jpeg",pt:"Ciência da Computação, redes neurais profundas e segmentação de instâncias. Atua no projeto MetaPKLot.",en:"Computer Science, deep neural networks and instance segmentation. Works on the MetaPKLot project."},
-{n:"Pietro Comin",l:"ug",img:"2025/09/IMG_3452.jpg",pt:"Ciência da Computação, investiga como a precisão numérica e o comportamento das funções de ativação afetam CNNs.",en:"Computer Science, investigating how numerical precision and activation function behavior impact CNNs."},
-{n:"Roberto Tomchak",l:"ug",img:"2025/09/roberto-830x1024.jpg",pt:"Ciência da Computação, Deep Learning aplicado a segurança e visão computacional.",en:"Computer Science, Deep Learning applied to security and computer vision."},
-{n:"Larissa Cutti",l:"ug",img:"2025/09/FotoLarissaCutti-877x1024.webp",pt:"Informática Biomédica, pesquisa deep learning e segurança de criptoativos.",en:"Biomedical Informatics, researching deep learning and crypto-asset security."},
-{n:"Thamiris Fischer",l:"ug",img:"2025/10/thamiris.jpeg",pt:"Ciência da Computação, pesquisa como o comportamento das funções de ativação afeta CNNs.",en:"Computer Science, researching how activation function behavior impacts CNNs."}];
-
-const PAST=[
-{n:"Eduardo Victor",pt:"Mestrado",en:"Master's student"},
-{n:"Heloísa Mendes",pt:"Graduação em Ciência da Computação, redes siamesas · projeto MetaPKLot",en:"CS undergrad, siamese networks · MetaPKLot project"},
-{n:"Bruno Aquiles",pt:"Graduação em Ciência da Computação, segmentação de instâncias · projeto MetaPKLot",en:"CS undergrad, instance segmentation · MetaPKLot project"},
-{n:"Marcelo Ribas",pt:"Graduação em Ciência da Computação, redes siamesas · projeto MetaPKLot",en:"CS undergrad, siamese networks · MetaPKLot project"},
-{n:"Barbara Santos",pt:"Graduação em Informática Biomédica, visualização de dados de alta dimensão",en:"Biomedical Informatics undergrad, high-dimensional data visualization"},
-{n:"Erick Cardoso",pt:"Graduação em Ciência da Computação, Deep Learning",en:"CS undergrad, Deep Learning"},
-{n:"Nadia Lobkov",pt:"Graduação em Ciência da Computação, divulgação digital dos projetos do laboratório",en:"CS undergrad, digital outreach of the lab's projects"}];
-
-const NEWS=[
-{d:"2025-05-27",pt:"O graduando Luan apresenta seu artigo sobre modelos leves para classificação de vagas de estacionamento em cidades inteligentes.",en:"Undergraduate student Luan presents his paper proposing lightweight models for classifying parking spaces in smart cities.",u:"https://periodicos.univali.br/index.php/acotb/article/view/21015"},
-{d:"2024-07-23",pt:"O graduando Muriki apresenta o trabalho sobre validação estatística do pareamento de colunas na evolução do esquema do Censo Escolar brasileiro.",en:"Undergraduate student Muriki presents our work on statistical validation of column matching in the schema evolution of the Brazilian Public School Census.",u:"https://arxiv.org/abs/2407.09885"},
-{d:"2023-12-11",pt:"Reunião de apresentação do novo site do DSBD.",en:"Presentation meeting for the new DSBD website."},
-{d:"2023-11-13",pt:"Reunião sobre o uso de múltiplas redes pré-treinadas para criar ground truths.",en:"Meeting on using multiple pre-trained networks to create ground truths."},
-{d:"2023-09-27",pt:"Apresentação do Prof. Paulo Almeida no 23º Meetup do CIDAMO sobre streams e projetos de cidades inteligentes.",en:"Prof. Paulo Almeida presents streams and smart-city projects at the 23rd CIDAMO Meetup."}];
-
-const COLLAB=[
-{wide:1,where:{pt:"Montreal, Canadá",en:"Montreal, Canada"},name:"ÉTS – École de technologie supérieure",people:[["Rafael Menelau Cruz","2024/02/Rafael-1.jpg"],["Robert Sabourin","2024/02/Robert-Sabourin-ETS.jpg"],["Alessandro Lameiras Koerich","2024/02/Alessandro-Lameiras-Koerich-ETS.jpg"]],
- pt:"Colaboração de mais de duas décadas em reconhecimento de padrões e aprendizado de máquina, com mais de 100 artigos publicados e orientação conjunta de pós-graduandos na UFPR e na ÉTS.",
- en:"A collaboration spanning more than two decades in pattern recognition and machine learning, with over 100 papers published and graduate students co-supervised at UFPR and ÉTS."},
-{where:{pt:"França",en:"France"},name:"Université de Rouen Normandie",people:[["Laurent Heutte","2024/02/heutte-1.jpg"]],
- pt:"Colaboração iniciada em 2014 no projeto CAPES-STIC-AmSud, em temas como recuperação de imagens de documentos e análise de imagens médicas.",
- en:"Started in 2014 through the CAPES-STIC-AmSud project, on topics such as document image retrieval and medical image analysis."},
-{where:{pt:"Nova Zelândia",en:"New Zealand"},name:"Victoria University of Wellington",people:[["Heitor Gomes","2024/02/heitor.png"]],
- pt:"Colaboração em fluxos de dados (data streams), com artigos em segurança computacional e Random Forests para streams desbalanceados.",
- en:"Collaboration on data streams, with joint papers on computer security and Random Forests for imbalanced data streams."},
-{wide:1,where:{pt:"Indústria",en:"Industry"},name:"IBM Research",people:[["Paulo Cavalin","2024/02/PauloCavalin.jpg"]],
- pt:"Colaboração centrada em classificação de texturas, com orientação de pós-graduandos e mais de uma dúzia de artigos revisados por pares.",
- en:"Collaboration centered on texture classification, with co-supervised graduate students and over a dozen peer-reviewed papers."}];
-
-const JOIN={pt:[["Mestrado e Doutorado","Para quem já tem graduação. Os programas duram 24 e 48 meses, respectivamente. Normalmente temos bolsas, e as inscrições estão sempre abertas."],["Iniciação Científica","Para estudantes de graduação aprenderem a conduzir e documentar pesquisa científica em pequenos projetos, com acompanhamento de um orientador."],["Especialização","Para profissionais interessados nas demandas mais recentes da indústria em Ciência de Dados e Big Data. <a href=\"http://dsbd.leg.ufpr.br/\" target=\"_blank\" rel=\"noopener\">Conheça o programa ↗</a>"]],
-en:[["Master's & PhD","For students who already hold a bachelor's degree. The programs last 24 and 48 months, respectively. We usually have scholarships, and applications are always open."],["Scientific Initiation","For undergraduates to learn how to conduct and document scientific research through small projects, guided by a mentor."],["Specialization","For professionals interested in the latest industry needs in Data Science and Big Data. <a href=\"http://dsbd.leg.ufpr.br/\" target=\"_blank\" rel=\"noopener\">See the program ↗</a>"]]};
-
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const initials=n=>n.split(/\s+/).filter(w=>/^[A-ZÁÉÍÓÚ]/.test(w)).slice(0,2).map(w=>w[0]).join("");
-const av=(n,img,cls="avatar")=>`<img class="${cls}" src="${U+img}" alt="${esc(n)}" loading="lazy" onerror="this.outerHTML='<span class=&quot;${cls}&quot;>${initials(n)}</span>'">`;
-
-let lang="pt";
-function render(){
-  const t=T[lang];
-  document.documentElement.lang=lang==="pt"?"pt-BR":"en";
-  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t[k])el.textContent=t[k]});
-  document.querySelectorAll("[data-i18n-html]").forEach(el=>{el.innerHTML=t[el.dataset.i18nHtml]});
-  document.querySelectorAll("[data-set-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.setLang===lang));
-  areasList.innerHTML=AREAS.map((a,i)=>`<div class="area"><span class="ix">${String(i+1).padStart(2,"0")} / 06</span><h3>${a[lang][0]}</h3><p>${a[lang][1]}</p></div>`).join("");
-  projList.innerHTML=PROJECTS.map(p=>{const [h,d,u]=p[lang];return `<a class="proj" href="https://prlalmeida.com.br/dsbd/${u}" target="_blank" rel="noopener"><div class="ph"><img src="${U+p.img}" alt="" loading="lazy" onerror="this.remove()"></div><div class="bd"><h3>${h}</h3><p>${d}</p><span class="more">${t.more}</span></div></a>`}).join("");
-  pubList.innerHTML=PUBS.map(p=>`<li class="pub"><span class="yr">${p.y}</span><div><div class="t">${esc(p.t)}</div><div class="a">${esc(p.a)}</div><div class="v">${esc(p.v)}</div></div>${p.u?`<a class="pdf" href="${p.u}" target="_blank" rel="noopener">PDF ↗</a>`:"<span></span>"}</li>`).join("");
-  document.getElementById("panel-fac").innerHTML=FACULTY.map(f=>{const bio=f[lang];const short=bio.length>190?bio.slice(0,bio.indexOf(" ",170))+"…":bio;return `<article class="fac">${av(f.n,f.img)}<div style="min-width:0"><h3>${f.n}</h3>${bio.length>190?`<details><summary>${t.bio}</summary><p>${bio}</p></details><p class="short">${short}</p>`:`<p>${bio}</p>`}</div></article>`}).join("");
-  document.querySelectorAll(".fac details").forEach(d=>d.addEventListener("toggle",()=>{d.nextElementSibling.hidden=d.open}));
-  document.getElementById("panel-stu").innerHTML=STUDENTS.map(s=>`<article class="stu"><div class="top">${av(s.n,s.img)}<div><h3>${s.n}</h3><span class="chip ${s.l}">${t["lvl_"+s.l]}</span></div></div><p>${s[lang]}</p></article>`).join("");
-  document.getElementById("panel-past").innerHTML=PAST.map(p=>`<li><b>${p.n}</b><span>${p[lang]}</span></li>`).join("");
-  newsList.innerHTML=NEWS.map(n=>{const dt=new Date(n.d+"T12:00:00");const f=dt.toLocaleDateString(lang==="pt"?"pt-BR":"en-US",{day:"numeric",month:"long",year:"numeric"});return `<li><time datetime="${n.d}">${f}</time><p>${n[lang]}${n.u?` <a href="${n.u}" target="_blank" rel="noopener">${n.u.replace(/^https?:\/\//,"")}</a>`:""}</p></li>`}).join("");
-  collabList.innerHTML=COLLAB.map(c=>`<article class="inst${c.wide?" wide":""}"><span class="where">${c.where[lang]}</span><h3>${c.name}</h3><div class="people">${c.people.map(([n,i])=>`<span class="person">${av(n,i)}${n}</span>`).join("")}</div><p>${c[lang]}</p></article>`).join("");
-  joinList.innerHTML=JOIN[lang].map(([h,d])=>`<div class="opt"><h3>${h}</h3><p>${d}</p></div>`).join("");
-}
-function setLang(l){lang=l;try{localStorage.setItem("dsbd-lang",l)}catch(e){}render()}
-(function init(){
-  let l=null;const h=location.hash.slice(1);
-  if(h==="en"||h==="pt")l=h;
-  if(!l){try{l=localStorage.getItem("dsbd-lang")}catch(e){}}
-  if(!l)l=(navigator.language||"pt").toLowerCase().startsWith("pt")?"pt":"en";
-  lang=l;render();
-})();
-document.querySelectorAll("[data-set-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.setLang)));
-document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll("[data-tab]").forEach(x=>x.setAttribute("aria-selected",x===b));
-  ["fac","stu","past"].forEach(k=>document.getElementById("panel-"+k).hidden=k!==b.dataset.tab);
-}));
-const bar=document.querySelector(".bar");
-menuBtn.addEventListener("click",()=>{const o=bar.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o)});
-document.querySelectorAll(".bar nav a").forEach(a=>a.addEventListener("click",()=>{bar.classList.remove("open");menuBtn.setAttribute("aria-expanded",false)}));
-copyMail.addEventListener("click",async()=>{
-  try{await navigator.clipboard.writeText("dsbd@ufpr.br");copyMail.textContent=T[lang].copied;setTimeout(()=>copyMail.textContent=T[lang].copy,1600)}
-  catch(e){const r=document.createRange();r.selectNodeContents(mail);const s=getSelection();s.removeAllRanges();s.addRange(r)}
-});
-
-/* hero: a slow field of data points flowing left→right, a nod to stream processing */
-(function(){
-  const c=document.getElementById("stream"),x=c.getContext("2d");
-  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let W,H,P=[];
-  function size(){const r=c.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
-    P=Array.from({length:Math.round(W*H/5200)},()=>({x:Math.random()*W,y:Math.random()*H,v:.15+Math.random()*.6,r:Math.random()<.06?2.4:1.1,k:Math.random()<.08}))}
-  function draw(){x.clearRect(0,0,W,H);
-    for(let i=0;i<6;i++){x.beginPath();x.strokeStyle="rgba(120,160,255,.08)";for(let px=0;px<=W;px+=12){const y=H*(.15+i*.14)+Math.sin(px/140+i+performance.now()/(reduce?1e12:4000))*18;px?x.lineTo(px,y):x.moveTo(px,y)}x.stroke()}
-    for(const p of P){x.fillStyle=p.k?"rgba(242,183,5,.85)":"rgba(160,190,255,.45)";x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();if(!reduce){p.x+=p.v;if(p.x>W+4){p.x=-4;p.y=Math.random()*H}}}
-    if(!reduce)requestAnimationFrame(draw)}
-  size();draw();addEventListener("resize",()=>{size();if(reduce)draw()});
-})();
-</script>
+<script src="assets/content.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>
