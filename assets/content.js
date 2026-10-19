@@ -250,6 +250,7 @@ DSBD.FACULTY=[
 DSBD.STUDENTS=[
 {n:"Claudio Biazus",l:"phd",img:"img/people/claudio-biazus.webp",pt:"Doutorando no PPGInf, em Inteligência Artificial com ênfase em Dataset Distillation.",en:"PhD student in PPGInf, in Artificial Intelligence with an emphasis on Dataset Distillation."},
 {n:"Eloiza",l:"ms",img:"img/people/eloiza.webp",pt:"Mestranda.",en:"Master's student."},
+{n:"Felipe Turetti Peruci",l:"ms",img:"img/people/felipe-peruci.webp",pt:"Mestrando no PPGInf, trabalha com visão computacional.",en:"Master's student in PPGInf, working on computer vision."},
 {n:"Paulo Luza",l:"ms",img:"img/people/paulo-luza.webp",pt:"Mestrando no PPGInf, pesquisa técnicas de compressão de modelos de Deep Learning.",en:"Master's student in PPGInf, researching model compression techniques for Deep Learning."},
 {n:"David Gomes",l:"ug",img:"img/people/david-gomes.webp",pt:"Ciência da Computação, com foco em Processamento de Linguagem Natural (PLN).",en:"Computer Science, focused on Natural Language Processing (NLP)."},
 {n:"Luan Kujavski",l:"ug",img:"img/people/luan-kujavski.webp",pt:"Ciência da Computação, redes neurais profundas e segmentação de instâncias. Atua no projeto MetaPKLot.",en:"Computer Science, deep neural networks and instance segmentation. Works on the MetaPKLot project."},
