@@ -275,3 +275,5 @@ footer small{display:block;width:100%;font-size:13px}
 .mhead .count{font:500 13px/1 var(--f-mono);color:var(--cobalt);font-variant-numeric:tabular-nums}
 .past li{display:flex;gap:12px;align-items:center}
 .past li .avatar{width:44px;border-radius:50%;font-size:14px;flex:none;filter:grayscale(.35)}
+
+.pbody code{font:500 .9em/1 var(--f-mono);background:var(--paper-2);padding:2px 6px;border-radius:5px}
