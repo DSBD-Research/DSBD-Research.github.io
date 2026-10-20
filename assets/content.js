@@ -242,10 +242,7 @@ DSBD.FACULTY=[
  en:"B.Sc. in Computer Engineering from UEPG (2012) and Ph.D. in Computer Science from UFPR (2018). His research focuses on machine learning and has produced algorithms and benchmarks used by the community, such as the Dynse Framework (in MOA) and the PKLot dataset."},
 {n:"Wagner Hugo Bonat",img:"img/people/wagner-bonat.webp",
  pt:"Pesquisador e professor do Departamento de Estatística da UFPR desde 2010. Bacharel (2008) e mestre (2010) pela UFPR, e doutor em Matemática e Ciência da Computação pela University of Southern Denmark (2016).",
- en:"Researcher and lecturer in the Department of Statistics at UFPR since 2010. B.S. (2008) and M.S. (2010) from UFPR, and Ph.D. in Mathematics and Computer Science from the University of Southern Denmark (2016)."},
-{n:"Walmes Marques Zeviani",img:"img/people/walmes-zeviani.webp",
- pt:"Professor Associado do Departamento de Estatística da UFPR desde 2010. Leciona Estatística Computacional no bacharelado em Estatística e diversas disciplinas da Especialização em Data Science e Big Data, além de Estatística Básica e Aplicada, com foco em análise de dados.",
- en:"Associate Professor in the Department of Statistics at UFPR since 2010. He teaches Computational Statistics in the Statistics bachelor's program and several courses in the Data Science and Big Data Specialization, as well as Elementary and Applied Statistics with a focus on data analysis."}];
+ en:"Researcher and lecturer in the Department of Statistics at UFPR since 2010. B.S. (2008) and M.S. (2010) from UFPR, and Ph.D. in Mathematics and Computer Science from the University of Southern Denmark (2016)."}];
 
 DSBD.STUDENTS=[
 {n:"Claudio Biazus",l:"phd",img:"img/people/claudio-biazus.webp",pt:"Doutorando no PPGInf, em Inteligência Artificial com ênfase em Dataset Distillation.",en:"PhD student in PPGInf, in Artificial Intelligence with an emphasis on Dataset Distillation."},
@@ -258,8 +255,8 @@ DSBD.STUDENTS=[
 {n:"Esdras Zultanski Araujo",l:"ms",img:"img/people/esdras-araujo.webp",pt:"Mestrando no PPGInf, trabalha com aprendizagem de máquina.",en:"Master's student in PPGInf, working on machine learning."},
 {n:"Gustavo Berwanger Liberado",l:"ms",img:"img/people/gustavo-liberado.webp",pt:"Mestrando no PPGInf, trabalha com visão computacional.",en:"Master's student in PPGInf, working on computer vision."},
 {n:"Thiago Toma",l:"ms",img:"img/people/thiago-toma.webp",pt:"Mestrando no PPGInf, trabalha com grafos e Text-to-SQL.",en:"Master's student in PPGInf, working on graphs and Text-to-SQL."},
+{n:"Luan Kujavski",l:"ms",img:"img/people/luan-kujavski.webp",pt:"Mestrando no PPGInf, trabalha com deep learning. Atua no projeto MetaPKLot.",en:"Master's student in PPGInf, working on deep learning. Works on the MetaPKLot project."},
 {n:"David Gomes",l:"ug",img:"img/people/david-gomes.webp",pt:"Ciência da Computação, com foco em Processamento de Linguagem Natural (PLN).",en:"Computer Science, focused on Natural Language Processing (NLP)."},
-{n:"Luan Kujavski",l:"ug",img:"img/people/luan-kujavski.webp",pt:"Ciência da Computação, redes neurais profundas e segmentação de instâncias. Atua no projeto MetaPKLot.",en:"Computer Science, deep neural networks and instance segmentation. Works on the MetaPKLot project."},
 {n:"Pietro Comin",l:"ug",img:"img/people/pietro-comin.webp",pt:"Ciência da Computação, investiga como a precisão numérica e o comportamento das funções de ativação afetam CNNs.",en:"Computer Science, investigating how numerical precision and activation function behavior impact CNNs."},
 {n:"Roberto Tomchak",l:"ug",img:"img/people/roberto-tomchak.webp",pt:"Ciência da Computação, Deep Learning aplicado a segurança e visão computacional.",en:"Computer Science, Deep Learning applied to security and computer vision."},
 {n:"Larissa Cutti",l:"ug",img:"img/people/larissa-cutti.webp",pt:"Informática Biomédica, pesquisa deep learning e segurança de criptoativos.",en:"Biomedical Informatics, researching deep learning and crypto-asset security."},
