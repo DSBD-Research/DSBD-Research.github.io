@@ -208,6 +208,7 @@ DSBD.PROJECTS=[
    en:{h:"Results",html:"<p>Using Wrecking SQL, the work showed how meaningless names affect LLM accuracy in SQL translation and demonstrated that <strong>inferring meaningful names</strong> for the schema before translation improves accuracy.</p><p>The project is ongoing and is also exploring graphs to represent database schemas.</p>"}}],
  team:[["Ruanitto Docini","UFPR · doutorando","img/people/ruanitto-docini.webp"],["Thiago Toma","UFPR · mestrando","img/people/thiago-toma.webp"],["Eduardo Cunha de Almeida","UFPR","img/people/eduardo-almeida.webp"],["Luiz Eduardo S. Oliveira","UFPR","img/people/luiz-oliveira.webp"]],
  pubs:[
+  {t:"Schema Distillation – A text-to-SQL approach for small language models",v:"Docini, R., Almeida, E., Oliveira, L. S. IEEE International Conference on Systems, Man, and Cybernetics (IEEE SMC), Bellevue, USA, 2026"},
   {t:"The Wrecking SQL Incremental Validation Methodology",v:"Docini, R., de Almeida, E. C., Oliveira, L. S. Database and Expert Systems Applications (DEXA), Springer, pp. 376–382, 2026",u:"https://doi.org/10.1007/978-3-032-02088-8_30"}],
  links:[{pt:"Benchmark BIRD",en:"BIRD benchmark",u:"https://bird-bench.github.io/"}]},
 
