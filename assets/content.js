@@ -249,9 +249,15 @@ DSBD.FACULTY=[
 
 DSBD.STUDENTS=[
 {n:"Claudio Biazus",l:"phd",img:"img/people/claudio-biazus.webp",pt:"Doutorando no PPGInf, em Inteligência Artificial com ênfase em Dataset Distillation.",en:"PhD student in PPGInf, in Artificial Intelligence with an emphasis on Dataset Distillation."},
+{n:"Marcos Antonio Schreiner",l:"phd",img:"img/people/marcos-schreiner.webp",pt:"Doutorando no PPGInf, trabalha com Concept Drift.",en:"PhD student in PPGInf, working on concept drift."},
+{n:"Renan Escribano",l:"phd",img:"img/people/renan-escribano.webp",pt:"Doutorando no PPGInf, trabalha com calibração de modelos de visão computacional.",en:"PhD student in PPGInf, working on calibration of computer vision models."},
+{n:"Ruanitto Docini",l:"phd",img:"img/people/ruanitto-docini.webp",pt:"Doutorando no PPGInf, trabalha com Text-to-SQL.",en:"PhD student in PPGInf, working on Text-to-SQL."},
 {n:"Eloiza",l:"ms",img:"img/people/eloiza.webp",pt:"Mestranda.",en:"Master's student."},
 {n:"Felipe Turetti Peruci",l:"ms",img:"img/people/felipe-peruci.webp",pt:"Mestrando no PPGInf, trabalha com visão computacional.",en:"Master's student in PPGInf, working on computer vision."},
 {n:"Paulo Luza",l:"ms",img:"img/people/paulo-luza.webp",pt:"Mestrando no PPGInf, pesquisa técnicas de compressão de modelos de Deep Learning.",en:"Master's student in PPGInf, researching model compression techniques for Deep Learning."},
+{n:"Esdras Zultanski Araujo",l:"ms",img:"img/people/esdras-araujo.webp",pt:"Mestrando no PPGInf, trabalha com aprendizagem de máquina.",en:"Master's student in PPGInf, working on machine learning."},
+{n:"Gustavo Berwanger Liberado",l:"ms",img:"img/people/gustavo-liberado.webp",pt:"Mestrando no PPGInf, trabalha com visão computacional.",en:"Master's student in PPGInf, working on computer vision."},
+{n:"Thiago Toma",l:"ms",img:"img/people/thiago-toma.webp",pt:"Mestrando no PPGInf, trabalha com grafos e Text-to-SQL.",en:"Master's student in PPGInf, working on graphs and Text-to-SQL."},
 {n:"David Gomes",l:"ug",img:"img/people/david-gomes.webp",pt:"Ciência da Computação, com foco em Processamento de Linguagem Natural (PLN).",en:"Computer Science, focused on Natural Language Processing (NLP)."},
 {n:"Luan Kujavski",l:"ug",img:"img/people/luan-kujavski.webp",pt:"Ciência da Computação, redes neurais profundas e segmentação de instâncias. Atua no projeto MetaPKLot.",en:"Computer Science, deep neural networks and instance segmentation. Works on the MetaPKLot project."},
 {n:"Pietro Comin",l:"ug",img:"img/people/pietro-comin.webp",pt:"Ciência da Computação, investiga como a precisão numérica e o comportamento das funções de ativação afetam CNNs.",en:"Computer Science, investigating how numerical precision and activation function behavior impact CNNs."},
