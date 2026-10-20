@@ -286,7 +286,9 @@ DSBD.STUDENTS=[
 {n:"Pietro Comin",l:"ug",img:"img/people/pietro-comin.webp",pt:"Ciência da Computação, investiga como a precisão numérica e o comportamento das funções de ativação afetam CNNs.",en:"Computer Science, investigating how numerical precision and activation function behavior impact CNNs."},
 {n:"Roberto Tomchak",l:"ug",img:"img/people/roberto-tomchak.webp",pt:"Ciência da Computação, Deep Learning aplicado a segurança e visão computacional.",en:"Computer Science, Deep Learning applied to security and computer vision."},
 {n:"Larissa Cutti",l:"ug",img:"img/people/larissa-cutti.webp",pt:"Informática Biomédica, pesquisa deep learning e segurança de criptoativos.",en:"Biomedical Informatics, researching deep learning and crypto-asset security."},
-{n:"Thamiris Fischer",l:"ug",img:"img/people/thamiris-fischer.webp",pt:"Ciência da Computação, pesquisa como o comportamento das funções de ativação afeta CNNs.",en:"Computer Science, researching how activation function behavior impacts CNNs."}];
+{n:"Thamiris Fischer",l:"ug",img:"img/people/thamiris-fischer.webp",pt:"Ciência da Computação, pesquisa como o comportamento das funções de ativação afeta CNNs.",en:"Computer Science, researching how activation function behavior impacts CNNs."},
+{n:"Heloísa Viotto",l:"ug",img:"img/people/heloisa-viotto.webp",pt:"Ciência da Computação. Atua no projeto OptimTrain, com otimizações para o treinamento de redes siamesas.",en:"Computer Science. Works on the OptimTrain project, on optimizations for training Siamese networks."},
+{n:"Cauê Samonek",l:"ug",img:"img/people/caue-samonek.webp",pt:"Ciência da Computação. Atua no projeto OptimTrain, com otimizações para o treinamento de redes siamesas.",en:"Computer Science. Works on the OptimTrain project, on optimizations for training Siamese networks."}];
 
 DSBD.PAST=[
 {n:"Eduardo Victor",img:"img/people/eduardo-victor.webp",pt:"Mestrado",en:"Master's student"},
