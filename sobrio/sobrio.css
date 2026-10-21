@@ -150,3 +150,5 @@ footer button,footer a.li{color:var(--ink);border-color:var(--line);font:600 13p
 .alt-banner a{color:var(--cobalt);font-weight:600}
 
 .past li span.avatar{color:var(--muted)}
+
+.fac .fac-link{font:600 13.5px/1 var(--f-body)}
