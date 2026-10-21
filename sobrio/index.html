@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/webp" href="../img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/site.css?v=202610211250">
+<title>[Sóbria] DSBD – Data Science &amp; Big Data · UFPR</title>
+<meta name="description" content="Data Science &amp; Big Data (DSBD), laboratório de pesquisa da UFPR (DINF + DEST).">
+<link rel="stylesheet" href="sobrio.css?v=202610211250">
+<meta name="robots" content="noindex">
+</head>
+<body data-page="home" data-base="../">
+<div class="alt-banner"><div class="wrap"><span>Versão alternativa (sóbria) do site, para comparação · <em>Alternative (sober) version, for comparison</em></span><a id="altLink" href="../">Ver a versão atual · See current version →</a></div></div>
+<script>document.getElementById('altLink').href='../'+location.pathname.split('/').pop()+location.search+location.hash;</script>
+
+<section class="hero" id="sobre">
+  <canvas id="stream" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" data-i18n="hero_eyebrow"></span>
+      <h1>Data Science <span class="amp">&amp;</span> Big Data</h1>
+      <p class="lede" data-i18n-html="about"></p>
+      <div class="cta">
+        <a class="btn primary" href="#projetos" data-i18n="cta_projects"></a>
+        <a class="btn ghost" href="#faca-parte" data-i18n="cta_join"></a>
+      </div>
+      <div class="dept"><span>DINF · <span data-i18n="dinf"></span></span><span>DEST · <span data-i18n="dest"></span></span></div>
+    </div>
+    <div class="logo-disc"><img src="../img/logo.webp" alt="Logo do DSBD: papagaio azul" width="595" height="640"></div>
+  </div>
+</section>
+
+<section class="band" id="areas">
+  <div class="wrap">
+    <div class="head"><div><span class="eyebrow" data-i18n="areas_eyebrow"></span><h2 data-i18n="areas_title"></h2></div></div>
+    <div class="areas" id="areasList"></div>
+  </div>
+</section>
+
+<section class="band alt" id="projetos">
+  <div class="wrap">
+    <div class="head"><div><span class="eyebrow" data-i18n="proj_eyebrow"></span><h2 data-i18n="proj_title"></h2></div><p data-i18n="proj_lede"></p></div>
+    <div class="projects" id="projList"></div>
+  </div>
+</section>
+
+<section class="band" id="publicacoes">
+  <div class="wrap">
+    <div class="head"><div><span class="eyebrow" data-i18n="pubs_eyebrow"></span><h2 data-i18n="pubs_title"></h2></div></div>
+    <ol class="pubs" id="pubList"></ol>
+  </div>
+</section>
+
+<section class="band alt" id="membros">
+  <div class="wrap">
+    <div class="head"><div><span class="eyebrow" data-i18n="mem_eyebrow"></span><h2 data-i18n="mem_title"></h2></div></div>
+    <div class="mgroup">
+      <div class="mhead"><h3 data-i18n="tab_fac"></h3><span class="count" id="cnt-fac"></span></div>
+      <div id="panel-fac" class="faculty"></div>
+    </div>
+    <div class="mgroup">
+      <div class="mhead"><h3 data-i18n="tab_stu"></h3><span class="count" id="cnt-stu"></span></div>
+      <div id="panel-stu" class="students"></div>
+    </div>
+    <div class="mgroup">
+      <div class="mhead"><h3 data-i18n="tab_past"></h3><span class="count" id="cnt-past"></span></div>
+      <ul id="panel-past" class="past"></ul>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="noticias">
+  <div class="wrap">
+    <div class="head"><div><span class="eyebrow" data-i18n="news_eyebrow"></span><h2 data-i18n="news_title"></h2></div></div>
+    <div class="news-grid">
+      <aside class="meeting">
+        <span class="eyebrow" data-i18n="meet_eyebrow"></span>
+        <h3 data-i18n="meet_title"></h3>
+        <p data-i18n="meet_text"></p>
+        <dl class="when">
+          <dt data-i18n="meet_when"></dt><dd data-i18n="meet_day"></dd>
+          <dt data-i18n="meet_where"></dt><dd data-i18n="meet_place"></dd>
+        </dl>
+      </aside>
+      <ol class="timeline" id="newsList"></ol>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="colaboracoes">
+  <div class="wrap">
+    <div class="head"><div><span class="eyebrow" data-i18n="col_eyebrow"></span><h2 data-i18n="col_title"></h2></div></div>
+    <div class="collab" id="collabList"></div>
+    <div class="industry" id="industryList"></div>
+  </div>
+</section>
+
+<section class="band" id="faca-parte">
+  <div class="wrap">
+    <div class="head"><div><span class="eyebrow" data-i18n="join_eyebrow"></span><h2 data-i18n="join_title"></h2></div><p data-i18n="join_lede"></p></div>
+    <div class="step"><span class="n">1</span><p data-i18n-html="join_step"></p></div>
+    <div class="join" id="joinList"></div>
+    <div class="notice">
+      <div><span class="eyebrow" data-i18n="notice_eyebrow"></span><h3 data-i18n="notice_title"></h3><p data-i18n="notice_text"></p></div>
+      <div class="links">
+        <a href="../docs/edital-libra-rocks.pdf" target="_blank" rel="noopener" data-i18n="notice_doc"></a>
+        <a class="sec" href="../docs/resultados-libra-rocks.pdf" target="_blank" rel="noopener" data-i18n="notice_res"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="../assets/content.js?v=202610211250"></script>
+<script src="../assets/site.js?v=202610211250"></script>
+</body>
+</html>

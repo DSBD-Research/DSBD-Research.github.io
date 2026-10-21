@@ -3,9 +3,11 @@
 (function(){
 const D=window.DSBD, T=D.T;
 const page=document.body.dataset.page||"home";
+const BASE=document.body.dataset.base||"";
+const A=p=>(!p||/^(https?:|data:|\/|\.\.\/)/.test(p))?p:BASE+p;
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const initials=n=>n.split(/\s+/).filter(w=>/^[A-ZÁÉÍÓÚÂÊÔ]/.test(w)).slice(0,2).map(w=>w[0]).join("");
-const av=(n,img,cls="avatar")=>img?`<img class="${cls}" src="${img}" alt="${esc(n)}" loading="lazy" onerror="this.outerHTML='<span class=&quot;${cls}&quot;>${initials(n)}</span>'">`:`<span class="${cls}">${initials(n)}</span>`;
+const av=(n,img,cls="avatar")=>img?`<img class="${cls}" src="${A(img)}" alt="${esc(n)}" loading="lazy" onerror="this.outerHTML='<span class=&quot;${cls}&quot;>${initials(n)}</span>'">`:`<span class="${cls}">${initials(n)}</span>`;
 const $=id=>document.getElementById(id);
 const ext=u=>`href="${u}" target="_blank" rel="noopener"`;
 
@@ -18,7 +20,7 @@ let lang=(()=>{const h=location.hash.slice(1);if(h==="en"||h==="pt")return h;
 const home=page==="home"?"":"index.html";
 document.body.insertAdjacentHTML("afterbegin",`
 <header class="bar" id="top"><div class="wrap">
-  <a class="brand" href="index.html"><img src="img/logo.webp" alt="Logo DSBD" width="38" height="41">DSBD</a>
+  <a class="brand" href="index.html"><img src="${A('img/logo.webp')}" alt="Logo DSBD" width="38" height="41">DSBD</a>
   <button class="menu-btn" id="menuBtn" aria-expanded="false" data-i18n="menu">Menu</button>
   <nav aria-label="Principal">
     <a href="${home}#sobre" data-i18n="nav_about"></a>
@@ -36,7 +38,7 @@ document.body.insertAdjacentHTML("afterbegin",`
 </div></header>`);
 document.body.insertAdjacentHTML("beforeend",`
 <footer><div class="wrap">
-  <a class="brand" href="index.html"><img src="img/logo.webp" alt="Logo DSBD" width="48" height="52">Data Science &amp; Big Data</a>
+  <a class="brand" href="index.html"><img src="${A('img/logo.webp')}" alt="Logo DSBD" width="48" height="52">Data Science &amp; Big Data</a>
   <div class="contact">
     <span class="mail" id="mail">dsbd@ufpr.br</span>
     <button type="button" id="copyMail" data-i18n="copy"></button>
@@ -47,7 +49,7 @@ document.body.insertAdjacentHTML("beforeend",`
 </div></footer>`);
 
 /* ---------- renderers ---------- */
-const projCard=(p,t)=>{const L=p[lang];return `<a class="proj" href="projeto.html?p=${p.id}"><div class="ph"><img src="${p.img}" alt="" loading="lazy" onerror="this.remove()"></div><div class="bd"><span class="status ${p.status}">${t["status_"+p.status]}</span><h3>${esc(L.title)}</h3><p>${esc(L.summary)}</p><span class="more">${t.more}</span></div></a>`};
+const projCard=(p,t)=>{const L=p[lang];return `<a class="proj" href="projeto.html?p=${p.id}"><div class="ph"><img src="${A(p.img)}" alt="" loading="lazy" onerror="this.remove()"></div><div class="bd"><span class="status ${p.status}">${t["status_"+p.status]}</span><h3>${esc(L.title)}</h3><p>${esc(L.summary)}</p><span class="more">${t.more}</span></div></a>`};
 
 function renderHome(t){
   $("areasList").innerHTML=D.AREAS.map((a,i)=>`<div class="area"><span class="ix">${String(i+1).padStart(2,"0")} / ${String(D.AREAS.length).padStart(2,"0")}</span><h3>${a[lang][0]}</h3><p>${a[lang][1]}</p></div>`).join("");
@@ -64,13 +66,13 @@ function renderHome(t){
   $("cnt-fac").textContent=D.FACULTY.length;$("cnt-stu").textContent=D.STUDENTS.length;$("cnt-past").textContent=D.PAST.length;
   $("newsList").innerHTML=D.NEWS.map(n=>{const f=new Date(n.d+"T12:00:00").toLocaleDateString(lang==="pt"?"pt-BR":"en-US",{day:"numeric",month:"long",year:"numeric"});return `<li><time datetime="${n.d}">${f}</time><p>${n[lang]}${n.u?` <a ${ext(n.u)}>${n.u.replace(/^https?:\/\//,"")}</a>`:""}</p></li>`}).join("");
   $("collabList").innerHTML=D.COLLAB.map(c=>`<article class="inst${c.wide?" wide":""}"><span class="where">${c.where[lang]}</span><h3>${c.name}</h3><div class="people">${c.people.map(([n,i])=>`<span class="person">${av(n,i)}${n}</span>`).join("")}</div><p>${c[lang]}</p></article>`).join("");
-  $("industryList").innerHTML=`<span class="lbl">${t.industry}</span>`+D.INDUSTRY.map(([n,i])=>`<span class="co-logo"><img src="${i}" alt="${esc(n)}" title="${esc(n)}" loading="lazy"></span>`).join("");
+  $("industryList").innerHTML=`<span class="lbl">${t.industry}</span>`+D.INDUSTRY.map(([n,i])=>`<span class="co-logo"><img src="${A(i)}" alt="${esc(n)}" title="${esc(n)}" loading="lazy"></span>`).join("");
   $("joinList").innerHTML=D.JOIN[lang].map(([h,d])=>`<div class="opt"><h3>${h}</h3><p>${d}</p></div>`).join("");
 }
 
 function renderFinished(t){
   const fin=D.PROJECTS.filter(p=>p.status==="finished");
-  $("finList").innerHTML=fin.map(p=>{const L=p[lang];return `<a class="fin-item" href="projeto.html?p=${p.id}"><div class="ph"><img src="${p.img}" alt="" loading="lazy" onerror="this.remove()"></div><div class="bd"><span class="status finished">${t.status_finished}</span><h2>${esc(L.title)}</h2><p>${esc(L.summary)}</p>${p.tech?`<div class="tags">${p.tech.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`:""}<span class="meta">${p.pubs.length} ${p.pubs.length===1?t.p_pub1:t.p_pubs.toLowerCase()}</span><span class="more">${t.more}</span></div></a>`}).join("");
+  $("finList").innerHTML=fin.map(p=>{const L=p[lang];return `<a class="fin-item" href="projeto.html?p=${p.id}"><div class="ph"><img src="${A(p.img)}" alt="" loading="lazy" onerror="this.remove()"></div><div class="bd"><span class="status finished">${t.status_finished}</span><h2>${esc(L.title)}</h2><p>${esc(L.summary)}</p>${p.tech?`<div class="tags">${p.tech.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`:""}<span class="meta">${p.pubs.length} ${p.pubs.length===1?t.p_pub1:t.p_pubs.toLowerCase()}</span><span class="more">${t.more}</span></div></a>`}).join("");
 }
 
 function renderProject(t){
@@ -83,9 +85,9 @@ function renderProject(t){
   $("pTitle").textContent=L.title;$("pSummary").textContent=L.summary;
   $("pBack").href=p.status==="finished"?"projetos-finalizados.html":"index.html#projetos";
   $("pBack").textContent=p.status==="finished"?t.p_finished_all:t.p_all;
-  $("pCover").innerHTML=`<img src="${p.img}" alt="">`;
+  $("pCover").innerHTML=`<img src="${A(p.img)}" alt="">`;
   const vid=id=>`<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="YouTube video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
-  $("pBody").innerHTML=p.sections.map(s=>{const S=s[lang];const v=s.video?vid(s.video):"";return `<section><h2>${esc(S.h)}</h2>${s.videoFirst?v:""}${S.html}${s.videoFirst?"":v}${s.fig?`<figure><img src="${typeof s.fig.src==="object"?s.fig.src[lang]:s.fig.src}" alt="${esc(s.fig[lang])}" loading="lazy"><figcaption>${esc(s.fig[lang])}</figcaption></figure>`:""}${S.after?`<p class="note">${S.after}</p>`:""}</section>`}).join("");
+  $("pBody").innerHTML=p.sections.map(s=>{const S=s[lang];const v=s.video?vid(s.video):"";return `<section><h2>${esc(S.h)}</h2>${s.videoFirst?v:""}${S.html}${s.videoFirst?"":v}${s.fig?`<figure><img src="${A(typeof s.fig.src==="object"?s.fig.src[lang]:s.fig.src)}" alt="${esc(s.fig[lang])}" loading="lazy"><figcaption>${esc(s.fig[lang])}</figcaption></figure>`:""}${S.after?`<p class="note">${S.after}</p>`:""}</section>`}).join("");
   const boxes=[];
   if(p.team&&p.team.length) boxes.push(`<div class="box"><h3>${t.p_team}</h3><div class="team">${p.team.map(([n,inst,img])=>`<div class="m">${av(n,img)}<div>${esc(n)}<small>${esc(inst)}</small></div></div>`).join("")}</div></div>`);
   if(p.pubs&&p.pubs.length) boxes.push(`<div class="box"><h3>${t.p_pubs}</h3><ul>${p.pubs.map(x=>{const ti=lang==="en"&&x.tEn?x.tEn:x.t;return `<li>${x.u?`<a ${ext(x.u)}>${esc(ti)} ↗</a>`:`<b>${esc(ti)}</b>`}<span>${esc(x.v)}</span></li>`}).join("")}</ul></div>`);
