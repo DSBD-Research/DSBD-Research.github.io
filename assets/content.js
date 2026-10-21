@@ -329,8 +329,8 @@ DSBD.COLLAB=[
  pt:"Colaboração de longa data em reconhecimento de padrões e visão computacional, com trabalhos em verificação de assinaturas, reconhecimento de espécies florestais, monitoramento de estacionamentos (MetaPKLot), imagens médicas e predição de internamentos.",
  en:"Long-standing collaboration in pattern recognition and computer vision, with joint work on signature verification, forest species recognition, parking lot monitoring (MetaPKLot), medical images and hospitalization prediction."},
 {where:{pt:"Recife, Brasil",en:"Recife, Brazil"},name:"UFPE – Universidade Federal de Pernambuco",people:[["George D. C. Cavalcanti","img/people/george-cavalcanti.webp"]],
- pt:"Colaboração com o Centro de Informática (CIn) da UFPE em aprendizado de máquina, com trabalhos em abordagens de dissimilaridade, reconhecimento em conjunto aberto e diagnóstico de COVID-19 em imagens de tórax. <a href=\"https://darmiton.com\" target=\"_blank\" rel=\"noopener\">Página do prof. George ↗</a>",
- en:"Collaboration with UFPE's Center for Informatics (CIn) in machine learning, with joint work on dissimilarity approaches, open set recognition and COVID-19 diagnosis from chest images. <a href=\"https://darmiton.com\" target=\"_blank\" rel=\"noopener\">Prof. George's page ↗</a>"}];
+ pt:"Colaboração com o Centro de Informática (CIn) da UFPE em aprendizado de máquina, com trabalhos em abordagens de dissimilaridade, reconhecimento em conjunto aberto e seleção dinâmica de classificadores/regressores. <a href=\"https://darmiton.com\" target=\"_blank\" rel=\"noopener\">Página do prof. George ↗</a>",
+ en:"Collaboration with UFPE's Center for Informatics (CIn) in machine learning, with joint work on dissimilarity approaches, open set recognition and dynamic selection of classifiers/regressors. <a href=\"https://darmiton.com\" target=\"_blank\" rel=\"noopener\">Prof. George's page ↗</a>"}];
 
 DSBD.INDUSTRY=[["IBM Brasil","img/partners/ibm.webp"],["Samsung Research Brazil","img/partners/samsung-research.webp"],["GoGenetic","img/partners/gogenetic.webp"]];
 
