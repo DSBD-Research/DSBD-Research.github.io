@@ -39,9 +39,3 @@ Os navegadores guardam `assets/content.js` por até 10 minutos. Para que a mudan
 ```html
 <script src="assets/content.js?v=202610192100"></script>
 ```
-
-## Versão alternativa (sóbria)
-
-A pasta `sobrio/` tem uma versão visual alternativa do site, para comparação: https://dsbd-research.github.io/sobrio/
-
-Ela usa o mesmo conteúdo (`assets/content.js`) e o mesmo script (`assets/site.js`); só muda o estilo, em `sobrio/sobrio.css`, carregado depois de `assets/site.css`. Por isso, qualquer atualização de conteúdo aparece nas duas versões. As páginas da versão sóbria têm `noindex`, para não aparecerem em buscadores. Se o grupo escolher essa versão, basta incorporar `sobrio.css` ao site principal; se não, a pasta pode ser apagada.
