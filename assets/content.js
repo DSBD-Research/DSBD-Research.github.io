@@ -256,7 +256,7 @@ DSBD.PUBS=[
 {y:2015,t:"PKLot – A robust dataset for parking lot classification",a:"Almeida, P. R. L., Oliveira, L. S., Silva Jr, E., Britto Jr, A., Koerich, A.",v:"Expert Systems with Applications, 42(11), 4937–4949",u:"http://www.inf.ufpr.br/lesoliveira/download/ESWA2015.pdf"}];
 
 DSBD.FACULTY=[
-{n:"Anderson Ara",img:"img/people/anderson-ara.webp",
+{n:"Anderson Ara",img:"img/people/anderson-ara.webp",u:"https://leg.ufpr.br/~ara/",
  pt:"Bacharel (2009) e mestre (2011) em Estatística pela Universidade Federal de São Carlos (UFSCar). Doutor em Estatística (2016) pelos Programas de Pós-Graduação em Estatística (PPGEst-UFSCar) e em Ciência da Computação (PPGCC-UFSCar).",
  en:"Holds a bachelor's degree (2009) and a master's degree (2011) in Statistics, both from the Federal University of São Carlos (UFSCar). He completed his Ph.D. in Statistics (2016) through the Postgraduate Programs in Statistics (PPGEst-UFSCar) and Computer Science (PPGCC-UFSCar)."},
 {n:"André Grégio",img:"img/people/andre-gregio.webp",
