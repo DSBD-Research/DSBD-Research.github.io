@@ -262,7 +262,7 @@ DSBD.FACULTY=[
 {n:"André Grégio",img:"img/people/andre-gregio.webp",
  pt:"Professor Associado do Departamento de Informática da UFPR. Doutor em Engenharia Elétrica pela UNICAMP (2012). Pesquisa segurança computacional, análise de malware, segurança de dispositivos móveis e aplicação de aprendizado de máquina e ciência de dados à cibersegurança.",
  en:"Associate Professor in the Department of Informatics at UFPR. Ph.D. in Electrical Engineering from the University of Campinas (UNICAMP, 2012). His research covers computer security, malware analysis, mobile device security, and machine learning and data science applied to cybersecurity."},
-{n:"Eduardo Cunha de Almeida",img:"img/people/eduardo-almeida.webp",
+{n:"Eduardo Cunha de Almeida",img:"img/people/eduardo-almeida.webp",u:"https://www.inf.ufpr.br/eduardo/",
  pt:"Professor Associado da UFPR. Pesquisa sistemas de banco de dados e gerenciamento de dados, com publicações em periódicos e conferências de prestígio como VLDB e ICDE.",
  en:"Associate Professor at UFPR. His research is in database systems and data management, with publications in highly regarded venues such as VLDB and ICDE."},
 {n:"Luiz Eduardo S. Oliveira",img:"img/people/luiz-oliveira-2026.webp",u:"https://lesoliveira.github.io",
@@ -274,7 +274,7 @@ DSBD.FACULTY=[
 {n:"Paulo Ricardo Lisboa de Almeida",img:"img/people/paulo-almeida.webp",u:"https://prlalmeida.com.br",
  pt:"Bacharel em Engenharia de Computação pela UEPG (2012) e doutor em Ciência da Computação pela UFPR (2018). Pesquisa aprendizado de máquina e contribuiu com algoritmos e benchmarks usados pela comunidade, como o framework Dynse (no MOA) e a base PKLot.",
  en:"B.Sc. in Computer Engineering from UEPG (2012) and Ph.D. in Computer Science from UFPR (2018). His research focuses on machine learning and has produced algorithms and benchmarks used by the community, such as the Dynse Framework (in MOA) and the PKLot dataset."},
-{n:"Wagner Hugo Bonat",img:"img/people/wagner-bonat.webp",
+{n:"Wagner Hugo Bonat",img:"img/people/wagner-bonat.webp",u:"https://www.leg.ufpr.br/~wagner/",
  pt:"Pesquisador e professor do Departamento de Estatística da UFPR desde 2010. Bacharel (2008) e mestre (2010) pela UFPR, e doutor em Matemática e Ciência da Computação pela University of Southern Denmark (2016).",
  en:"Researcher and lecturer in the Department of Statistics at UFPR since 2010. B.S. (2008) and M.S. (2010) from UFPR, and Ph.D. in Mathematics and Computer Science from the University of Southern Denmark (2016)."}];
 
