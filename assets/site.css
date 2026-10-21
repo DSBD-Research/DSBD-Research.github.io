@@ -288,3 +288,6 @@ footer small{display:block;width:100%;font-size:13px}
 
 .fac .fac-link{display:inline-block;margin-top:8px;font:500 13px/1 var(--f-mono);color:var(--cobalt);text-decoration:none}
 .fac .fac-link:hover{text-decoration:underline}
+
+.team .m a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.team .m a:hover{color:var(--cobalt);text-decoration-color:currentColor}
