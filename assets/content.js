@@ -268,10 +268,10 @@ DSBD.FACULTY=[
 {n:"Luiz Eduardo S. Oliveira",img:"img/people/luiz-oliveira-2026.webp",u:"https://lesoliveira.github.io",
  pt:"Doutor em Ciência da Computação pela Université du Québec (2003). Orientou e coorientou mais de 40 estudantes de mestrado, doutorado e pós-doutorado e publicou mais de 240 artigos em periódicos e conferências internacionais. Recebeu o prêmio de melhor tese de doutorado da ÉTS/Université du Québec (2003) e o IBM Faculty Award (2017). Atua em reconhecimento de padrões, aprendizado de máquina e visão computacional.",
  en:"Ph.D. in Computer Science from Université du Québec (2003). He has supervised and co-supervised more than 40 master's, doctoral and postdoctoral students and published over 240 articles in journals and international conferences. He received the Excellence Award for the best doctoral thesis from ÉTS/Université du Québec (2003) and an IBM Faculty Award (2017). He works mainly in pattern recognition, machine learning and computer vision."},
-{n:"Marco Antonio Zanata Alves",img:"img/people/marco-zanata.webp",
+{n:"Marco Antonio Zanata Alves",img:"img/people/marco-zanata.webp",u:"https://web.inf.ufpr.br/mazalves/",
  pt:"Bacharel em Ciência da Computação pela UNESP (2006), mestre (2009) e doutor (2014) em Ciência da Computação pela UFRGS, onde fez pós-doutorado (2014–2016). Desde 2016 é Professor Associado do Departamento de Informática da UFPR, responsável por disciplinas de arquitetura de computadores e programação paralela.",
  en:"B.Sc. in Computer Science from UNESP (2006), M.Sc. (2009) and Ph.D. (2014) in Computer Science from UFRGS, where he was a postdoctoral researcher (2014–2016). Since 2016 he has been an Associate Professor in the Department of Informatics at UFPR, teaching computer architecture and parallel programming."},
-{n:"Paulo Ricardo Lisboa de Almeida",img:"img/people/paulo-almeida.webp",
+{n:"Paulo Ricardo Lisboa de Almeida",img:"img/people/paulo-almeida.webp",u:"https://prlalmeida.com.br",
  pt:"Bacharel em Engenharia de Computação pela UEPG (2012) e doutor em Ciência da Computação pela UFPR (2018). Pesquisa aprendizado de máquina e contribuiu com algoritmos e benchmarks usados pela comunidade, como o framework Dynse (no MOA) e a base PKLot.",
  en:"B.Sc. in Computer Engineering from UEPG (2012) and Ph.D. in Computer Science from UFPR (2018). His research focuses on machine learning and has produced algorithms and benchmarks used by the community, such as the Dynse Framework (in MOA) and the PKLot dataset."},
 {n:"Wagner Hugo Bonat",img:"img/people/wagner-bonat.webp",
@@ -307,10 +307,7 @@ DSBD.PAST=[
 {n:"Barbara Santos",img:"img/people/barbara-santos.webp",pt:"Graduação em Informática Biomédica, visualização de dados de alta dimensão",en:"Biomedical Informatics undergrad, high-dimensional data visualization"},
 {n:"Erick Cardoso",img:"img/people/erick-cardoso.webp",pt:"Graduação em Ciência da Computação, Deep Learning",en:"CS undergrad, Deep Learning"},
 {n:"Nadia Lobkov",img:"img/people/nadia-lobkov.webp",pt:"Graduação em Ciência da Computação, divulgação digital dos projetos do laboratório",en:"CS undergrad, digital outreach of the lab's projects"},
-{"n": "Everton F. Baro", "pt": "Doutorado, PPGInf/UFPR (2024). Tese: Predição de internações a partir de dados de planos de saúde por métodos de aprendizagem supervisionada", "en": "PhD, PPGInf/UFPR (2024). Thesis: Predição de internações a partir de dados de planos de saúde por métodos de aprendizagem supervisionada"},
-{"n": "Natally C. Gama", "pt": "Mestrado, PPGBC/UFPA (2024). Dissertação: Forest Species Recognition", "en": "Master's, PPGBC/UFPA (2024). Dissertation: Forest Species Recognition"},
-{"n": "Teruo Maruyama", "pt": "Doutorado, PPGInf/UFPR (2021). Tese: Automatic Intrapersonal Variability Modeling for Offline Signature Verification", "en": "PhD, PPGInf/UFPR (2021). Thesis: Automatic Intrapersonal Variability Modeling for Offline Signature Verification"},
-{"n": "Luiz G. Hafemann", "pt": "Doutorado, ÉTS Montréal (2019), e mestrado, PPGInf/UFPR (2014). Tese: Learning features for offline handwritten signature verification", "en": "PhD, ÉTS Montréal (2019), and master's, PPGInf/UFPR (2014). Thesis: Learning features for offline handwritten signature verification"},];
+{"n": "Everton F. Baro", "pt": "Doutorado, PPGInf/UFPR (2024). Tese: Predição de internações a partir de dados de planos de saúde por métodos de aprendizagem supervisionada", "en": "PhD, PPGInf/UFPR (2024). Thesis: Predição de internações a partir de dados de planos de saúde por métodos de aprendizagem supervisionada"},];
 
 DSBD.NEWS=[
 {d:"2025-05-27",pt:"O graduando Luan apresenta seu artigo sobre modelos leves para classificação de vagas de estacionamento em cidades inteligentes.",en:"Undergraduate student Luan presents his paper proposing lightweight models for classifying parking spaces in smart cities.",u:"https://periodicos.univali.br/index.php/acotb/article/view/21015"},
