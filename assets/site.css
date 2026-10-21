@@ -283,3 +283,5 @@ footer small{display:block;width:100%;font-size:13px}
 .pbody section p a{font-weight:600;white-space:nowrap}
 
 .pbody .note{font-size:15px;color:var(--muted);border-left:3px solid var(--macaw);padding:4px 0 4px 14px;margin-top:16px}
+
+.past li span.avatar{display:grid;place-items:center;margin:0;font:700 14px/1 var(--f-display);color:#fff}
