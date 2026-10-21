@@ -281,3 +281,5 @@ footer small{display:block;width:100%;font-size:13px}
 .pbody .video{position:relative;aspect-ratio:16/9;max-width:100%;margin:22px 0;border-radius:var(--r);overflow:hidden;background:#000;border:1px solid var(--line)}
 .pbody .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .pbody section p a{font-weight:600;white-space:nowrap}
+
+.pbody .note{font-size:15px;color:var(--muted);border-left:3px solid var(--macaw);padding:4px 0 4px 14px;margin-top:16px}
