@@ -17,7 +17,7 @@
 window.DSBD = {};
 
 DSBD.T = {
-pt:{menu:"Menu",lab_eyebrow:"O laboratório",lab_title:"Onde a pesquisa acontece",lab_lede:"Nosso espaço na UFPR: estações de trabalho, quadro para discussões, telão para reuniões e, claro, o cantinho do café.",lab_close:"Fechar",nav_about:"Sobre",nav_projects:"Projetos",nav_pubs:"Publicações",nav_members:"Membros",nav_news:"Notícias",nav_collab:"Colaborações",nav_join:"Faça parte",
+pt:{menu:"Menu",lab_title:"O laboratório",lab_lede:"Nosso espaço na UFPR: estações de trabalho, quadro para discussões, telão para reuniões e, claro, o cantinho do café.",srv_title:"Infraestrutura computacional",srv_lede:"Os membros do grupo têm acesso a servidores com GPUs para treinar e avaliar seus modelos.",srv_n:"servidores",srv_gpu:"GPUs",srv_vram:"de memória de GPU",srv_cores:"núcleos de CPU",srv_ram:"de RAM",srv_h:["Servidor","Ano","CPU","RAM","GPUs","Armazenamento"],lab_close:"Fechar",nav_about:"Sobre",nav_projects:"Projetos",nav_pubs:"Publicações",nav_members:"Membros",nav_news:"Notícias",nav_collab:"Colaborações",nav_join:"Faça parte",
 hero_eyebrow:"Laboratório de pesquisa · UFPR",
 about:"O <strong>Data Science &amp; Big Data</strong> é um laboratório de pesquisa da <strong>Universidade Federal do Paraná (UFPR)</strong>, na interseção do Departamento de Informática (DINF) e do Departamento de Estatística (DEST). Reunimos pesquisadores das duas áreas em <strong>Aprendizado de Máquina, Aprendizado Profundo, Modelagem Estatística, Prototipagem de Hardware e processamento de fluxos de Big Data</strong>.",
 cta_projects:"Conheça os projetos",cta_join:"Faça parte do grupo",dinf:"Departamento de Informática",dest:"Departamento de Estatística",
@@ -38,7 +38,7 @@ join_step:"Qualquer que seja o programa, o primeiro passo obrigatório é agenda
 notice_eyebrow:"Editais",notice_title:"Projeto de P&D Libra Rocks",notice_text:"Seleção de estudantes para pesquisa no Projeto de P&D Libra Rocks, em parceria com o Instituto Lamir, com foco na aplicação de Deep Learning à análise de dados geológicos.",notice_doc:"Edital (PDF)",notice_res:"Resultados (PDF)",
 copy:"Copiar e-mail",copied:"Copiado",
 p_team:"Equipe",p_pub1:"publicação",p_pubs:"Publicações",p_links:"Dados e links",p_tech:"Tecnologias",p_notfound:"Projeto não encontrado.",p_all:"← Todos os projetos",p_finished_all:"← Projetos finalizados",p_tcc:"Teses e trabalhos de conclusão"},
-en:{menu:"Menu",lab_eyebrow:"The lab",lab_title:"Where the research happens",lab_lede:"Our space at UFPR: workstations, a whiteboard for discussions, a large screen for meetings and, of course, the coffee corner.",lab_close:"Close",nav_about:"About",nav_projects:"Projects",nav_pubs:"Publications",nav_members:"Members",nav_news:"News",nav_collab:"Collaborations",nav_join:"Join in",
+en:{menu:"Menu",lab_title:"The lab",lab_lede:"Our space at UFPR: workstations, a whiteboard for discussions, a large screen for meetings and, of course, the coffee corner.",srv_title:"Computing infrastructure",srv_lede:"Group members have access to GPU servers to train and evaluate their models.",srv_n:"servers",srv_gpu:"GPUs",srv_vram:"of GPU memory",srv_cores:"CPU cores",srv_ram:"of RAM",srv_h:["Server","Year","CPU","RAM","GPUs","Storage"],lab_close:"Close",nav_about:"About",nav_projects:"Projects",nav_pubs:"Publications",nav_members:"Members",nav_news:"News",nav_collab:"Collaborations",nav_join:"Join in",
 hero_eyebrow:"Research laboratory · UFPR",
 about:"<strong>Data Science &amp; Big Data</strong> is a research laboratory at the <strong>Federal University of Paraná (UFPR)</strong>, at the intersection of the Department of Informatics (DINF) and the Department of Statistics (DEST). We bring researchers from both fields together in <strong>Machine Learning, Deep Learning, Statistical Modeling, Hardware Prototyping, and Big Data stream processing</strong>.",
 cta_projects:"See our projects",cta_join:"Join the group",dinf:"Department of Informatics",dest:"Department of Statistics",
@@ -347,3 +347,11 @@ DSBD.LAB=[
 {src:"img/lab/lab-4.webp",pt:"O cantinho do café",en:"The coffee corner"},
 {src:"img/lab/lab-5.webp",pt:"Estações de trabalho e telão para reuniões",en:"Workstations and the meeting screen"},
 {src:"img/lab/lab-6.webp",pt:"O laboratório visto da entrada",en:"The lab seen from the entrance"}];
+DSBD.SERVERS=[
+{n:"pilheira1",y:2018,cpu:"2× Intel Xeon Silver 4114",cores:40,ram:128,ramT:"DDR4",gpu:[["NVIDIA Titan X Pascal",12],["NVIDIA Titan Xp",12]],sto:"6 HDs (14,4 TB) + SSD 240 GB",stoEn:"6 HDDs (14.4 TB) + 240 GB SSD"},
+{n:"serra1",y:2020,cpu:"2× Intel Xeon Silver 4214",cores:48,ram:128,ramT:"DDR4",gpu:[["NVIDIA RTX 5000 Ampere",24],["NVIDIA RTX 5000 Ampere",24]],sto:"4 HDs (10,8 TB) + SSD 240 GB",stoEn:"4 HDDs (10.8 TB) + 240 GB SSD"},
+{n:"serra2",y:2020,cpu:"2× Intel Xeon Silver 4214",cores:48,ram:128,ramT:"DDR4",gpu:[["NVIDIA RTX 5000 Ampere",24],["NVIDIA RTX 5000 Ampere",24]],sto:"4 HDs (10,8 TB) + SSD 240 GB",stoEn:"4 HDDs (10.8 TB) + 240 GB SSD"},
+{n:"Tarkin",y:2023,cpu:"2× Intel Xeon Gold 6338",cores:64,ram:2048,ramT:"DDR4",gpu:[["NVIDIA RTX A6000",48]],sto:"10 SSDs (~34 TB)",stoEn:"10 SSDs (~34 TB)"},
+{n:"jatoba1",y:2024,cpu:"2× Intel Xeon Gold 6430",cores:64,ram:512,ramT:"DDR5",gpu:[["NVIDIA RTX 5000 Ada",32],["NVIDIA RTX 5000 Ada",32]],sto:"2× HD 8 TB + NVMe 3 TB",stoEn:"2× 8 TB HDD + 3 TB NVMe"},
+{n:"jatoba2",y:2024,cpu:"2× Intel Xeon Gold 6430",cores:64,ram:512,ramT:"DDR5",gpu:[["NVIDIA RTX 6000 Ada",48],["NVIDIA RTX PRO 5000 Blackwell",72]],sto:"2× HD 8 TB + NVMe 3 TB",stoEn:"2× 8 TB HDD + 3 TB NVMe"},
+{n:"cassandra",y:2026,cpu:"2× AMD EPYC 9335",cores:64,ram:256,ramT:"DDR5",gpu:[["NVIDIA L40S",48],["NVIDIA L40S",48]],sto:"2× NVMe 1,92 TB + 6× SSD 3,84 TB",stoEn:"2× 1.92 TB NVMe + 6× 3.84 TB SSD"}];

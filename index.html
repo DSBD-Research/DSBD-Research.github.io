@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=202610221709">
+<link rel="stylesheet" href="assets/site.css?v=202610221718">
 <title>DSBD – Data Science &amp; Big Data · UFPR</title>
 <meta name="description" content="Data Science &amp; Big Data (DSBD), laboratório de pesquisa da UFPR (DINF + DEST).">
 </head>
@@ -95,19 +95,23 @@
   </div>
 </section>
 
-<section class="band" id="laboratorio">
-  <div class="wrap">
-    <div class="head"><div><span class="eyebrow" data-i18n="lab_eyebrow"></span><h2 data-i18n="lab_title"></h2></div><p data-i18n="lab_lede"></p></div>
-    <div class="lab" id="labList"></div>
-  </div>
-  <dialog class="lightbox" id="labBox"><button type="button" class="lb-close" data-i18n-aria="lab_close">×</button><img alt=""><p></p></dialog>
-</section>
-
-<section class="band alt" id="faca-parte">
+<section class="band" id="faca-parte">
   <div class="wrap">
     <div class="head"><div><span class="eyebrow" data-i18n="join_eyebrow"></span><h2 data-i18n="join_title"></h2></div><p data-i18n="join_lede"></p></div>
     <div class="step"><span class="n">1</span><p data-i18n-html="join_step"></p></div>
     <div class="join" id="joinList"></div>
+
+    <div class="sub" id="laboratorio">
+      <div class="subhead"><h3 data-i18n="lab_title"></h3><p data-i18n="lab_lede"></p></div>
+      <div class="lab" id="labList"></div>
+    </div>
+
+    <div class="sub" id="infraestrutura">
+      <div class="subhead"><h3 data-i18n="srv_title"></h3><p data-i18n="srv_lede"></p></div>
+      <div class="srv-stats" id="srvStats"></div>
+      <div class="srv-wrap"><table class="srv" id="srvTable"></table></div>
+    </div>
+
     <div class="notice">
       <div><span class="eyebrow" data-i18n="notice_eyebrow"></span><h3 data-i18n="notice_title"></h3><p data-i18n="notice_text"></p></div>
       <div class="links">
@@ -116,9 +120,10 @@
       </div>
     </div>
   </div>
+  <dialog class="lightbox" id="labBox"><button type="button" class="lb-close">×</button><img alt=""><p></p></dialog>
 </section>
 
-<script src="assets/content.js?v=202610221709"></script>
-<script src="assets/site.js?v=202610221709"></script>
+<script src="assets/content.js?v=202610221718"></script>
+<script src="assets/site.js?v=202610221718"></script>
 </body>
 </html>
