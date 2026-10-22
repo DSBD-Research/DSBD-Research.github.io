@@ -67,6 +67,9 @@ function renderHome(t){
   $("newsList").innerHTML=D.NEWS.map(n=>{const f=new Date(n.d+"T12:00:00").toLocaleDateString(lang==="pt"?"pt-BR":"en-US",{day:"numeric",month:"long",year:"numeric"});return `<li><time datetime="${n.d}">${f}</time><p>${n[lang]}${n.u?` <a ${ext(n.u)}>${n.u.replace(/^https?:\/\//,"")}</a>`:""}</p></li>`}).join("");
   $("collabList").innerHTML=D.COLLAB.map(c=>`<article class="inst${c.wide?" wide":""}"><span class="where">${c.where[lang]}</span><h3>${c.name}</h3><div class="people">${c.people.map(([n,i])=>`<span class="person">${av(n,i)}${n}</span>`).join("")}</div><p>${c[lang]}</p></article>`).join("");
   $("industryList").innerHTML=`<span class="lbl">${t.industry}</span>`+D.INDUSTRY.map(([n,i])=>`<span class="co-logo"><img src="${A(i)}" alt="${esc(n)}" title="${esc(n)}" loading="lazy"></span>`).join("");
+  if($("labList")&&D.LAB){$("labList").innerHTML=D.LAB.map((p,i)=>`<button type="button" class="lab-ph" data-i="${i}"><img src="${A(p.src)}" alt="${esc(p[lang])}" loading="lazy"></button>`).join("");
+    const box=$("labBox");$("labList").onclick=e=>{const b=e.target.closest(".lab-ph");if(!b)return;const p=D.LAB[+b.dataset.i];box.querySelector("img").src=A(p.src);box.querySelector("img").alt=p[lang];box.querySelector("p").textContent=p[lang];box.querySelector(".lb-close").setAttribute("aria-label",t.lab_close);box.showModal()};
+    box.onclick=e=>{if(e.target===box||e.target.closest(".lb-close"))box.close()};}
   $("joinList").innerHTML=D.JOIN[lang].map(([h,d])=>`<div class="opt"><h3>${h}</h3><p>${d}</p></div>`).join("");
 }
 

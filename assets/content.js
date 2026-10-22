@@ -17,7 +17,7 @@
 window.DSBD = {};
 
 DSBD.T = {
-pt:{menu:"Menu",nav_about:"Sobre",nav_projects:"Projetos",nav_pubs:"Publicações",nav_members:"Membros",nav_news:"Notícias",nav_collab:"Colaborações",nav_join:"Faça parte",
+pt:{menu:"Menu",lab_eyebrow:"O laboratório",lab_title:"Onde a pesquisa acontece",lab_lede:"Nosso espaço na UFPR: estações de trabalho, quadro para discussões, telão para reuniões e, claro, o cantinho do café.",lab_close:"Fechar",nav_about:"Sobre",nav_projects:"Projetos",nav_pubs:"Publicações",nav_members:"Membros",nav_news:"Notícias",nav_collab:"Colaborações",nav_join:"Faça parte",
 hero_eyebrow:"Laboratório de pesquisa · UFPR",
 about:"O <strong>Data Science &amp; Big Data</strong> é um laboratório de pesquisa da <strong>Universidade Federal do Paraná (UFPR)</strong>, na interseção do Departamento de Informática (DINF) e do Departamento de Estatística (DEST). Reunimos pesquisadores das duas áreas em <strong>Aprendizado de Máquina, Aprendizado Profundo, Modelagem Estatística, Prototipagem de Hardware e processamento de fluxos de Big Data</strong>.",
 cta_projects:"Conheça os projetos",cta_join:"Faça parte do grupo",dinf:"Departamento de Informática",dest:"Departamento de Estatística",
@@ -38,7 +38,7 @@ join_step:"Qualquer que seja o programa, o primeiro passo obrigatório é agenda
 notice_eyebrow:"Editais",notice_title:"Projeto de P&D Libra Rocks",notice_text:"Seleção de estudantes para pesquisa no Projeto de P&D Libra Rocks, em parceria com o Instituto Lamir, com foco na aplicação de Deep Learning à análise de dados geológicos.",notice_doc:"Edital (PDF)",notice_res:"Resultados (PDF)",
 copy:"Copiar e-mail",copied:"Copiado",
 p_team:"Equipe",p_pub1:"publicação",p_pubs:"Publicações",p_links:"Dados e links",p_tech:"Tecnologias",p_notfound:"Projeto não encontrado.",p_all:"← Todos os projetos",p_finished_all:"← Projetos finalizados",p_tcc:"Teses e trabalhos de conclusão"},
-en:{menu:"Menu",nav_about:"About",nav_projects:"Projects",nav_pubs:"Publications",nav_members:"Members",nav_news:"News",nav_collab:"Collaborations",nav_join:"Join in",
+en:{menu:"Menu",lab_eyebrow:"The lab",lab_title:"Where the research happens",lab_lede:"Our space at UFPR: workstations, a whiteboard for discussions, a large screen for meetings and, of course, the coffee corner.",lab_close:"Close",nav_about:"About",nav_projects:"Projects",nav_pubs:"Publications",nav_members:"Members",nav_news:"News",nav_collab:"Collaborations",nav_join:"Join in",
 hero_eyebrow:"Research laboratory · UFPR",
 about:"<strong>Data Science &amp; Big Data</strong> is a research laboratory at the <strong>Federal University of Paraná (UFPR)</strong>, at the intersection of the Department of Informatics (DINF) and the Department of Statistics (DEST). We bring researchers from both fields together in <strong>Machine Learning, Deep Learning, Statistical Modeling, Hardware Prototyping, and Big Data stream processing</strong>.",
 cta_projects:"See our projects",cta_join:"Join the group",dinf:"Department of Informatics",dest:"Department of Statistics",
@@ -339,3 +339,11 @@ DSBD.INDUSTRY=[["IBM Brasil","img/partners/ibm.webp"],["Samsung Research Brazil"
 
 DSBD.JOIN={pt:[["Mestrado e Doutorado","Para quem já tem graduação. Os programas duram 24 e 48 meses, respectivamente. Normalmente temos bolsas, e as inscrições estão sempre abertas."],["Iniciação Científica","Para estudantes de graduação aprenderem a conduzir e documentar pesquisa científica em pequenos projetos, com acompanhamento de um orientador."],["Especialização","Para profissionais interessados nas demandas mais recentes da indústria em Ciência de Dados e Big Data. <a href=\"http://dsbd.leg.ufpr.br/\" target=\"_blank\" rel=\"noopener\">Conheça o programa ↗</a>"]],
 en:[["Master's & PhD","For students who already hold a bachelor's degree. The programs last 24 and 48 months, respectively. We usually have scholarships, and applications are always open."],["Scientific Initiation","For undergraduates to learn how to conduct and document scientific research through small projects, guided by a mentor."],["Specialization","For professionals interested in the latest industry needs in Data Science and Big Data. <a href=\"http://dsbd.leg.ufpr.br/\" target=\"_blank\" rel=\"noopener\">See the program ↗</a>"]]};
+
+DSBD.LAB=[
+{src:"img/lab/lab-1.webp",pt:"Pesquisadores nas estações de trabalho do laboratório",en:"Researchers at the lab workstations"},
+{src:"img/lab/lab-2.webp",pt:"Vista geral do laboratório",en:"Overview of the lab"},
+{src:"img/lab/lab-3.webp",pt:"Mesas de trabalho e quadro para discussões",en:"Desks and the whiteboard for discussions"},
+{src:"img/lab/lab-4.webp",pt:"O cantinho do café",en:"The coffee corner"},
+{src:"img/lab/lab-5.webp",pt:"Estações de trabalho e telão para reuniões",en:"Workstations and the meeting screen"},
+{src:"img/lab/lab-6.webp",pt:"O laboratório visto da entrada",en:"The lab seen from the entrance"}];
