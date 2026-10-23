@@ -252,8 +252,7 @@ DSBD.PUBS=[
 {y:2024,t:"Optimizing Parking Space Classification: Distilling Ensembles into Lightweight Classifiers",a:"Alves, P. L., Hochuli, A., Oliveira, L. E., Almeida, P. R. L.",v:"IEEE 23rd International Conference on Machine Learning and Applications (ICMLA)",u:"https://arxiv.org/pdf/2410.14705"},
 {y:2023,t:"Vehicle Occurrence-based Parking Space Detection",a:"Almeida, P. R. L., Alves, J. H., Oliveira, L. S., Hochuli, A. G., Fröhlich, J. V., Krauel, R. A.",v:"IEEE International Conference on Systems, Man, and Cybernetics (SMC)",u:""},
 {y:2023,t:"Improved Computation of Database Operators via Vector Processing Near-Data",a:"Santos, S., Kepe, T. R., Alves, M. A.",v:"IEEE 35th International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD)",u:"https://ieeexplore.ieee.org/abstract/document/10305869"},
-{y:2023,t:"Fast & Furious: On the modelling of malware detection as an evolving data stream",a:"Ceschin, F., Botacin, M., Gomes, H. M., Pinagé, F., Oliveira, L. S., Grégio, A.",v:"Expert Systems with Applications, 212, 118590",u:"https://www.sciencedirect.com/science/article/pii/S0957417422016463"},
-{y:2021,t:"Fast detection of denial constraint violations",a:"Pena, E. H., de Almeida, E. C., Naumann, F.",v:"Proceedings of the VLDB Endowment, 15(4), 859–871",u:"https://dl.acm.org/doi/abs/10.14778/3503585.3503595/"}];
+{y:2023,t:"Fast & Furious: On the modelling of malware detection as an evolving data stream",a:"Ceschin, F., Botacin, M., Gomes, H. M., Pinagé, F., Oliveira, L. S., Grégio, A.",v:"Expert Systems with Applications, 212, 118590",u:"https://www.sciencedirect.com/science/article/pii/S0957417422016463"}];
 
 DSBD.FACULTY=[
 {n:"Anderson Ara",img:"img/people/anderson-ara.webp",u:"https://leg.ufpr.br/~ara/",
