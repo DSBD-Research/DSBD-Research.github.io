@@ -326,3 +326,4 @@ footer small{display:block;width:100%;font-size:13px}
 .srv small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
 .srv td:nth-child(2){font-variant-numeric:tabular-nums}
 .srv td:nth-child(4){white-space:nowrap}
+.srv-note{margin:10px 0 0;font-size:14px;color:var(--muted)}
