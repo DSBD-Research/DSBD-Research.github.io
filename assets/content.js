@@ -311,11 +311,7 @@ DSBD.PAST=[
 
 DSBD.NEWS=[
 {d:"2026-10-26",pt:"Defesa de TCC do aluno Roberto Tomchak, às 14h, no auditório do DINF: <em>Mantendo a dificuldade: um escalonador de margem para a Margin Triplet Loss no treinamento de redes siamesas</em>.",en:"Undergraduate thesis defense by Roberto Tomchak, at 2 p.m., in the DINF auditorium: <em>Mantendo a dificuldade: um escalonador de margem para a Margin Triplet Loss no treinamento de redes siamesas</em> (Keeping the difficulty: a margin scheduler for the Margin Triplet Loss in Siamese network training)."},
-{d:"2025-05-27",pt:"O graduando Luan apresenta seu artigo sobre modelos leves para classificação de vagas de estacionamento em cidades inteligentes.",en:"Undergraduate student Luan presents his paper proposing lightweight models for classifying parking spaces in smart cities.",u:"https://periodicos.univali.br/index.php/acotb/article/view/21015"},
-{d:"2024-07-23",pt:"O graduando Muriki apresenta o trabalho sobre validação estatística do pareamento de colunas na evolução do esquema do Censo Escolar brasileiro.",en:"Undergraduate student Muriki presents our work on statistical validation of column matching in the schema evolution of the Brazilian Public School Census.",u:"https://arxiv.org/abs/2407.09885"},
-{d:"2023-12-11",pt:"Reunião de apresentação do novo site do DSBD.",en:"Presentation meeting for the new DSBD website."},
-{d:"2023-11-13",pt:"Reunião sobre o uso de múltiplas redes pré-treinadas para criar ground truths.",en:"Meeting on using multiple pre-trained networks to create ground truths."},
-{d:"2023-09-27",pt:"Apresentação do Prof. Paulo Almeida no 23º Meetup do CIDAMO sobre streams e projetos de cidades inteligentes.",en:"Prof. Paulo Almeida presents streams and smart-city projects at the 23rd CIDAMO Meetup."}];
+{d:"2025-05-27",pt:"O graduando Luan apresenta seu artigo sobre modelos leves para classificação de vagas de estacionamento em cidades inteligentes.",en:"Undergraduate student Luan presents his paper proposing lightweight models for classifying parking spaces in smart cities.",u:"https://periodicos.univali.br/index.php/acotb/article/view/21015"}];
 
 DSBD.COLLAB=[
 {wide:1,where:{pt:"Montreal, Canadá",en:"Montreal, Canada"},name:"ÉTS – École de technologie supérieure",people:[["Rafael Menelau Cruz","img/people/rafael-cruz.webp"],["Robert Sabourin","img/people/robert-sabourin.webp"],["Alessandro Lameiras Koerich","img/people/alessandro-koerich.webp"]],
